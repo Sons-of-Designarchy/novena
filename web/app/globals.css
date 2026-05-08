@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "HighwayExp";
+  src: url("/fonts/highway-exp.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Highway";
+  src: url("/fonts/highway.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InstrumentSerif";
+  src: url("/fonts/instrument-serif.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
+
+/* ── Theme tokens (Tailwind picks up --color-* via @theme) ── */
+@theme {
+  --color-ivory:  #F2EDDF;
+  --color-dusk:   #1A1A18;
+  --color-forest: #0F2870;
+  --color-sage:   #2B52C8;
+  --color-flame:  #E35A1A;
+  --color-rust:   #C04010;
+  --color-cobalt: #1A3FA3;
+  --color-sand:   #C8B89A;
+  --color-mist:   #C8D4EE;
+  --font-highway-exp: "HighwayExp", sans-serif;
+  --font-highway:     "Highway", sans-serif;
+  --font-serif:       "InstrumentSerif", Georgia, serif;
+}
+
+/* ── Theme: naranja (cream · orange · cobalt) ── */
+[data-theme="naranja"] {
+  --color-dusk:   #B83A08;
+  --color-forest: #7A2200;
+  --color-sage:   #D4500A;
+  --color-rust:   #7A1500;
+  --color-cobalt: #B83A08;
+  --color-mist:   #FFE4D0;
+}
+
+html {
+  background-color: var(--color-ivory);
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-dusk);
+}
+
+/* ── Marquee ──────────────────────────────── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 28s linear infinite;
+}
+.animate-marquee-right {
+  animation: marquee-right 32s linear infinite;
+}
+
+/* Pause on hover */
+.photo-strip:hover .animate-marquee-left,
+.photo-strip:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* ── Halftone overlay ────────────────────── */
+.halftone-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.85) 1px, transparent 1px);
+  background-size: 4px 4px;
+  mix-blend-mode: multiply;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+/* ── Hero Ken Burns ──────────────────────── */
+@keyframes heroZoom {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1); }
+}
+.hero-img {
+  animation: heroZoom 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Fade up ──────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* ── Hero text clip ───────────────────────── */
+@keyframes revealText {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+.reveal-text {
+  animation: revealText 1s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* ── Scroll reveal ────────────────────────── */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-animate][data-visible] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced motion ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
