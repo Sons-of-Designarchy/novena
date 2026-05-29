@@ -34,7 +34,7 @@ export default function Contact() {
         {/* Left */}
         <div>
           <p
-            className="text-dusk/50 text-sm mb-1"
+            className="text-dusk/50 text-lg mb-1"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             Reserva una sesión con nosotros en:
@@ -65,7 +65,7 @@ export default function Contact() {
         {/* Right — form */}
         <div>
           <p
-            className="text-dusk/40 text-sm mb-8 leading-relaxed"
+            className="text-dusk/40 text-lg mb-8 leading-relaxed"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             Para cualquier consulta, escríbenos a través del formulario.
