@@ -1,8 +1,10 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { themeForPath, type Theme } from "@/app/themeMap";
 
-export type Theme = "azul" | "naranja";
+export type { Theme };
 
 interface ThemeCtxValue {
   theme: Theme;
@@ -12,22 +14,21 @@ interface ThemeCtxValue {
 const ThemeCtx = createContext<ThemeCtxValue>({ theme: "azul", setTheme: () => {} });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("azul");
+  const pathname = usePathname();
+  // Override manual (toggle). Se limpia al cambiar de ruta.
+  const [override, setOverride] = useState<Theme | null>(null);
+  const theme = override ?? themeForPath(pathname);
 
   useEffect(() => {
-    const raw = localStorage.getItem("theme");
-    const saved: Theme = raw === "naranja" ? "naranja" : "azul";
-    apply(saved);
-  }, []);
+    setOverride(null);
+  }, [pathname]);
 
-  function apply(t: Theme) {
-    setThemeState(t);
-    localStorage.setItem("theme", t);
-    document.documentElement.dataset.theme = t === "azul" ? "" : t;
-  }
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme === "azul" ? "" : theme;
+  }, [theme]);
 
   return (
-    <ThemeCtx.Provider value={{ theme, setTheme: apply }}>
+    <ThemeCtx.Provider value={{ theme, setTheme: setOverride }}>
       {children}
     </ThemeCtx.Provider>
   );

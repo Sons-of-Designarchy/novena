@@ -8,7 +8,7 @@ export default function Artists() {
       {/* Header */}
       <div className="mb-14 md:mb-20" data-animate>
         <p
-          className="text-[10px] tracking-[0.3em] uppercase text-dusk/30 mb-4"
+          className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
           style={{ fontFamily: "var(--font-highway)" }}
         >
           Con quiénes hemos trabajado
@@ -42,7 +42,7 @@ export default function Artists() {
                 className="flex items-center gap-3 text-dusk/50 text-sm pb-3 border-b border-sand/30"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
-                <span className="w-1 h-1 rounded-full bg-flame shrink-0" />
+                <span className="w-1 h-1 rounded-full bg-cobalt shrink-0" />
                 {name}
               </li>
             ))}
@@ -62,7 +62,7 @@ export default function Artists() {
           />
           <div className="px-3 py-3 flex items-center gap-2">
             <span
-              className="text-[9px] tracking-[0.25em] uppercase text-ivory/25"
+              className="text-sm tracking-[0.25em] uppercase text-ivory/70"
               style={{ fontFamily: "var(--font-highway)" }}
             >
               Estudio Novena Friends — Lista de reproducción

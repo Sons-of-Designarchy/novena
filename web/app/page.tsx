@@ -55,7 +55,7 @@ export default function Home() {
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 md:px-20">
 
             <p
-              className="text-cobalt/40 text-[9px] tracking-[0.4em] uppercase mb-8
+              className="text-cobalt/40 text-base font-semibold tracking-[0.4em] uppercase mb-8
                          opacity-0 animate-fade-up"
               style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
             >
@@ -64,7 +64,7 @@ export default function Home() {
 
             <h1
               className="text-cobalt uppercase leading-[0.88] tracking-tight
-                         text-[48px] max-w-[20ch]
+                         text-5xl max-w-[20ch]
                          opacity-0 animate-fade-up delay-100"
               style={{ fontFamily: "var(--font-highway-exp)", animationFillMode: "forwards" }}
             >
@@ -72,7 +72,7 @@ export default function Home() {
             </h1>
 
             <p
-              className="mt-7 text-dusk/45 italic text-[clamp(1rem,1.6vw,1.25rem)]
+              className="mt-7 text-dusk/45 italic text-xl
                          opacity-0 animate-fade-up delay-200"
               style={{ fontFamily: "var(--font-serif)", animationFillMode: "forwards" }}
             >
@@ -83,7 +83,7 @@ export default function Home() {
               href="/contact"
               className="group mt-10 inline-flex items-center gap-2 rounded-full
                          border border-cobalt text-cobalt
-                         px-7 py-3 text-[10px] tracking-[0.2em] uppercase
+                         px-7 py-3 text-sm tracking-[0.2em] uppercase
                          hover:bg-cobalt hover:text-ivory transition-colors
                          opacity-0 animate-fade-up delay-300"
               style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
@@ -95,7 +95,7 @@ export default function Home() {
 
           <p
             className="absolute bottom-6 left-6 md:left-10 z-10
-                       text-dusk/25 text-[9px] tracking-[0.3em] uppercase"
+                       text-dusk/25 text-sm tracking-[0.3em] uppercase"
             style={{ fontFamily: "var(--font-highway)" }}
           >
             Estudio · Mexico City
@@ -136,9 +136,9 @@ export default function Home() {
         className="relative overflow-hidden"
       >
         <ParallaxTexture
-          src="/textures/halftone-02.png"
-          speed={0.45}
-          opacity={0.14}
+          src="/textures/grain-01.png"
+          speed={0.2}
+          opacity={0.06}
           blendMode="multiply"
         />
 
@@ -148,7 +148,7 @@ export default function Home() {
           <div className="flex flex-col justify-center px-5 md:pl-12 lg:pl-20 py-16 md:py-24 pr-8 md:pr-12" data-animate>
 
             <p
-              className="text-[9px] tracking-[0.35em] uppercase text-dusk/30 mb-5"
+              className="text-sm font-bold tracking-[0.35em] uppercase text-dusk/40 mb-5"
               style={{ fontFamily: "var(--font-highway)" }}
             >
               01 — El Estudio
@@ -163,8 +163,8 @@ export default function Home() {
             </h2>
 
             <div
-              className="space-y-5 text-dusk/60 leading-[1.75] max-w-[44ch] mb-10"
-              style={{ fontFamily: "var(--font-highway)", fontSize: "clamp(0.9rem,1.3vw,1rem)" }}
+              className="space-y-5 text-dusk/60 text-base leading-[1.75] max-w-[44ch] mb-10"
+              style={{ fontFamily: "var(--font-highway)" }}
             >
               <p>
                 Un estudio de grabación independiente en la Colonia Cuauhtémoc, Ciudad de México —
@@ -186,7 +186,7 @@ export default function Home() {
               href="/contact"
               className="group self-start inline-flex items-center gap-2
                          rounded-full border border-cobalt text-cobalt
-                         px-7 py-3 text-[10px] tracking-[0.2em] uppercase
+                         px-7 py-3 text-sm tracking-[0.2em] uppercase
                          hover:bg-cobalt hover:text-ivory transition-colors"
               style={{ fontFamily: "var(--font-highway)" }}
             >
@@ -264,7 +264,7 @@ export default function Home() {
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <p
-                  className="text-[8px] tracking-[0.3em] uppercase text-dusk/25 mb-2"
+                  className="text-sm tracking-[0.3em] uppercase text-dusk/25 mb-2"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   {label}

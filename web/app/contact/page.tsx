@@ -16,7 +16,7 @@ export default function Contact() {
       {/* Header */}
       <div className="mb-14 md:mb-20" data-animate>
         <p
-          className="text-[10px] tracking-[0.3em] uppercase text-dusk/30 mb-4"
+          className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
           style={{ fontFamily: "var(--font-highway)" }}
         >
           Contáctanos
@@ -50,8 +50,8 @@ export default function Contact() {
           {/* Map */}
           <div className="overflow-hidden border border-sand/50">
             <iframe
-              title="Estudio Novena"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.296!2d-99.1580!3d19.4370!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f88ecf54aa55%3A0x6ce5a1ea4063f27!2sSanta+Mar%C3%ADa+la+Ribera%2C+Mexico+City!5e0!3m2!1sen!2smx!4v1700000000000"
+              title="Estudio Novena — Mitla 145, Narvarte Poniente, CDMX"
+              src="https://www.google.com/maps?q=Mitla%20145,%20Narvarte%20Poniente,%20CDMX&output=embed"
               width="100%"
               height="300"
               style={{ border: 0, filter: "grayscale(100%) contrast(1.1)" }}
@@ -89,7 +89,7 @@ export default function Contact() {
                 {(["firstName", "lastName"] as const).map((name) => (
                   <div key={name} className="flex flex-col gap-1.5">
                     <label
-                      className="text-[9px] tracking-[0.2em] uppercase text-dusk/30"
+                      className="text-sm tracking-[0.2em] uppercase text-dusk/30"
                       style={{ fontFamily: "var(--font-highway)" }}
                     >
                       {name === "firstName" ? "Nombre" : "Apellido"} *
@@ -109,7 +109,7 @@ export default function Contact() {
 
               <div className="flex flex-col gap-1.5">
                 <label
-                  className="text-[9px] tracking-[0.2em] uppercase text-dusk/30"
+                  className="text-sm tracking-[0.2em] uppercase text-dusk/30"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   Email *
@@ -128,7 +128,7 @@ export default function Contact() {
 
               <div className="flex flex-col gap-1.5">
                 <label
-                  className="text-[9px] tracking-[0.2em] uppercase text-dusk/30"
+                  className="text-sm tracking-[0.2em] uppercase text-dusk/30"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   Mensaje *
@@ -147,7 +147,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="self-start rounded-full border border-cobalt text-cobalt px-10 py-4 text-[10px] tracking-[0.2em] uppercase
+                className="self-start rounded-full border border-cobalt text-cobalt px-10 py-4 text-sm tracking-[0.2em] uppercase
                            hover:bg-cobalt hover:text-ivory transition-colors"
                 style={{ fontFamily: "var(--font-highway)" }}
               >

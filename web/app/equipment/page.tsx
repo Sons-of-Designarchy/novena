@@ -49,7 +49,7 @@ export default function Equipment() {
       {/* Header */}
       <div className="mb-14 md:mb-20" data-animate>
         <p
-          className="text-[10px] tracking-[0.3em] uppercase text-dusk/30 mb-4"
+          className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
           style={{ fontFamily: "var(--font-highway)" }}
         >
           Con qué trabajamos
@@ -67,7 +67,7 @@ export default function Equipment() {
         {gear.map((section) => (
           <div key={section.category}>
             <h2
-              className="text-[9px] tracking-[0.3em] uppercase text-flame mb-4 pb-3 border-b border-sand/70"
+              className="text-sm tracking-[0.3em] uppercase text-cobalt mb-4 pb-3 border-b border-sand/70"
               style={{ fontFamily: "var(--font-highway)" }}
             >
               {section.category}

@@ -18,6 +18,7 @@ const rightLinks = [
 const LOGOS: Record<string, string> = {
   azul:    "/logos/logo-azul.png",
   naranja: "/logos/logo-naranja.png",
+  verde:   "/logos/logo-black.png",
 };
 
 export default function Header() {
@@ -26,7 +27,7 @@ export default function Header() {
   const { theme } = useTheme();
 
   const linkClass = (href: string) =>
-    `text-[10px] tracking-[0.18em] uppercase transition-colors whitespace-nowrap
+    `text-sm tracking-[0.18em] uppercase transition-colors whitespace-nowrap
      ${pathname === href ? "text-dusk" : "text-dusk/45 hover:text-dusk"}`;
 
   return (

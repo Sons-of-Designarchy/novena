@@ -6,6 +6,7 @@ import CornerIcons from "@/components/CornerIcons";
 import ThemeToggle from "@/components/ThemeToggle";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollReveal from "@/components/ScrollReveal";
+import { THEME_BY_PATH, DEFAULT_THEME } from "./themeMap";
 
 export const metadata: Metadata = {
   title: "Estudio Novena",
@@ -16,15 +17,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Apply saved theme before first paint to avoid flash */}
+        {/* Apply per-route theme before first paint to avoid flash */}
         <script dangerouslySetInnerHTML={{ __html: `
           (function(){
-            var t = localStorage.getItem('theme');
-            if (t === 'naranja') document.documentElement.dataset.theme = 'naranja';
+            var map = ${JSON.stringify(THEME_BY_PATH)};
+            var def = ${JSON.stringify(DEFAULT_THEME)};
+            var t = map[location.pathname] || def;
+            document.documentElement.dataset.theme = t === 'azul' ? '' : t;
           })();
         `}} />
       </head>
-      <body className="min-h-screen flex flex-col bg-ivory text-dusk" style={{ fontFamily: "var(--font-serif)" }}>
+      <body className="min-h-screen flex flex-col bg-ivory text-dusk">
         <ThemeProvider>
           <Header />
           <CornerIcons />

@@ -21,7 +21,7 @@ export default function ThemeToggle() {
         <button
           key={id}
           onClick={() => setTheme(id)}
-          className={`px-4 py-2 text-[9px] tracking-[0.2em] uppercase transition-colors ${
+          className={`px-4 py-2 text-sm tracking-[0.2em] uppercase transition-colors ${
             theme === id
               ? "bg-cobalt text-ivory"
               : "bg-ivory/80 text-dusk/40 hover:text-dusk/70"

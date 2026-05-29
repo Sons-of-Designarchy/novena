@@ -5,7 +5,7 @@ import ParallaxTexture from "./ParallaxTexture";
 export default function Footer() {
 
   return (
-    <footer className="bg-cobalt text-ivory relative overflow-hidden border-t border-ivory/10">
+    <footer className="text-ivory relative overflow-hidden border-t border-ivory/10" style={{ backgroundColor: "#7A1C1C" }}>
       <ParallaxTexture
         src="/textures/halftone-wide-01.png"
         speed={0.45}
@@ -23,7 +23,7 @@ export default function Footer() {
             {/* Col 1 — CTA */}
             <div className="py-14 md:py-20 md:pr-12" data-animate>
               <p
-                className="text-[9px] tracking-[0.35em] uppercase text-ivory/25 mb-6"
+                className="text-sm font-bold tracking-[0.35em] uppercase text-ivory/40 mb-6"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
                 01 — Reservar
@@ -38,7 +38,7 @@ export default function Footer() {
               <Link
                 href="/contact"
                 className="group inline-flex items-center gap-2 rounded-full border border-ivory text-ivory
-                           px-7 py-3 text-[10px] tracking-[0.2em] uppercase
+                           px-7 py-3 text-sm tracking-[0.2em] uppercase
                            hover:bg-ivory hover:text-cobalt transition-colors"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
@@ -51,7 +51,7 @@ export default function Footer() {
             <div className="py-14 md:py-20 md:pl-12 flex flex-col justify-between gap-10">
               <div>
                 <p
-                  className="text-[9px] tracking-[0.35em] uppercase text-ivory/25 mb-6"
+                  className="text-sm font-bold tracking-[0.35em] uppercase text-ivory/40 mb-6"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   02 — Síguenos
@@ -77,7 +77,7 @@ export default function Footer() {
               </div>
               <div>
                 <p
-                  className="text-[9px] tracking-[0.35em] uppercase text-ivory/25 mb-3"
+                  className="text-sm tracking-[0.35em] uppercase text-ivory/25 mb-3"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   Estudio
@@ -133,7 +133,7 @@ export default function Footer() {
           className="h-4 w-auto opacity-20"
         />
         <p
-          className="text-[9px] tracking-[0.2em] uppercase text-ivory/20"
+          className="text-sm tracking-[0.2em] uppercase text-ivory/20"
           style={{ fontFamily: "var(--font-highway)" }}
         >
           © {new Date().getFullYear()} Estudio Novena
