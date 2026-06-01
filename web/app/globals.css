@@ -50,9 +50,10 @@
   --text-7xl:  5.5rem;     /* 88px */
 }
 
-/* ── Theme: naranja (cream · orange · cobalt) ── */
+/* ── Theme: naranja (cream · orange accent) ──
+   El tema solo cambia el ACENTO (cobalt → títulos).
+   El texto de cuerpo (dusk) se queda en el negro por defecto. */
 [data-theme="naranja"] {
-  --color-dusk:   #B83A08;
   --color-forest: #7A2200;
   --color-sage:   #D4500A;
   --color-rust:   #7A1500;
@@ -60,9 +61,8 @@
   --color-mist:   #FFE4D0;
 }
 
-/* ── Theme: verde (cream · emerald) ── */
+/* ── Theme: verde (cream · emerald accent) ── */
 [data-theme="verde"] {
-  --color-dusk:   #1B8049;
   --color-forest: #0F5530;
   --color-sage:   #2FA968;
   --color-rust:   #0B3F23;

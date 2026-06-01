@@ -74,7 +74,7 @@ export default function Contact() {
           {sent ? (
             <div className="border border-sand/50 px-8 py-12">
               <p
-                className="text-dusk text-2xl uppercase mb-2"
+                className="text-cobalt text-2xl uppercase mb-2"
                 style={{ fontFamily: "var(--font-highway-exp)" }}
               >
                 Mensaje enviado.
@@ -89,7 +89,7 @@ export default function Contact() {
                 {(["firstName", "lastName"] as const).map((name) => (
                   <div key={name} className="flex flex-col gap-1.5">
                     <label
-                      className="text-sm tracking-[0.2em] uppercase text-dusk/30"
+                      className="text-sm tracking-[0.2em] uppercase text-cobalt"
                       style={{ fontFamily: "var(--font-highway)" }}
                     >
                       {name === "firstName" ? "Nombre" : "Apellido"} *
@@ -109,7 +109,7 @@ export default function Contact() {
 
               <div className="flex flex-col gap-1.5">
                 <label
-                  className="text-sm tracking-[0.2em] uppercase text-dusk/30"
+                  className="text-sm tracking-[0.2em] uppercase text-cobalt"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   Email *
@@ -128,7 +128,7 @@ export default function Contact() {
 
               <div className="flex flex-col gap-1.5">
                 <label
-                  className="text-sm tracking-[0.2em] uppercase text-dusk/30"
+                  className="text-sm tracking-[0.2em] uppercase text-cobalt"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   Mensaje *

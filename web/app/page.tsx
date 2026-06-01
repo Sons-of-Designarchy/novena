@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import ParallaxTexture from "@/components/ParallaxTexture";
+import ParallaxImage from "@/components/ParallaxImage";
+import ScrollSwapImage from "@/components/ScrollSwapImage";
 import HalftoneImage from "@/components/HalftoneImage";
 import SvgIcon from "@/components/SvgIcon";
 
@@ -42,13 +44,26 @@ export default function Home() {
             boxShadow: "0 4px 48px rgba(26,26,24,0.10), 0 1px 0px rgba(26,26,24,0.06)",
           }}
         >
-          <ParallaxTexture
-            src="/textures/halftone-wide-01.png"
-            speed={0.45}
-            opacity={0.14}
-            blendMode="multiply"
-            backgroundSize="contain"
-            overshoot="-20%"
+          {/* ── Costado derecho — altura centrada, parallax ── */}
+          <ScrollSwapImage
+            step={180}
+            parallax={0.1}
+            images={[
+              "/gallery/pino-postal-2.png",
+              "/gallery/novena-textura-3.png",
+            ]}
+            className="hidden md:block absolute top-1/2 right-[6%] z-[5] w-[460px] h-[540px] opacity-[0.35]"
+          />
+
+          {/* ── Costado izquierdo — más abajo, orden invertido, parallax ── */}
+          <ScrollSwapImage
+            step={180}
+            parallax={0.18}
+            images={[
+              "/gallery/novena-textura-3.png",
+              "/gallery/pino-postal-2.png",
+            ]}
+            className="hidden md:block absolute top-[64%] left-[6%] z-[5] w-[460px] h-[540px] opacity-[0.35]"
           />
 
           {/* Centered content */}
@@ -145,7 +160,19 @@ export default function Home() {
         <div className="relative z-10 grid md:grid-cols-[1fr_1fr] min-h-[600px] md:min-h-[700px] items-stretch">
 
           {/* LEFT — heading + body + CTA */}
-          <div className="flex flex-col justify-center px-5 md:pl-12 lg:pl-20 py-16 md:py-24 pr-8 md:pr-12" data-animate>
+          <div className="relative isolate overflow-hidden flex flex-col justify-center px-5 md:pl-12 lg:pl-20 py-16 md:py-24 pr-8 md:pr-12" data-animate>
+
+            {/* Pedazo de araucana — esquina sup. derecha de esta columna, B&N, parallax */}
+            <div
+              aria-hidden="true"
+              className="absolute top-0 right-0 -z-10 w-[130px] md:w-[210px] h-[400px] md:h-[600px] overflow-hidden pointer-events-none"
+            >
+              <ParallaxImage
+                src="/gallery/novena-textura-1.png"
+                speed={0.28}
+                opacity={0.2}
+              />
+            </div>
 
             <p
               className="text-sm font-bold tracking-[0.35em] uppercase text-dusk/40 mb-5"

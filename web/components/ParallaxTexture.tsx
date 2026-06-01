@@ -9,6 +9,8 @@ interface Props {
   blendMode?: string;
   className?: string;
   backgroundSize?: string;
+  backgroundRepeat?: string;
+  filter?: string;     // optional CSS filter, e.g. "contrast(1.25)"
   overshoot?: string;  // CSS inset value; smaller = less parallax range + smaller apparent dots with cover
 }
 
@@ -19,6 +21,8 @@ export default function ParallaxTexture({
   blendMode = "multiply",
   className = "",
   backgroundSize = "cover",
+  backgroundRepeat = "no-repeat",
+  filter,
   overshoot = "-50%",
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -50,8 +54,10 @@ export default function ParallaxTexture({
         inset: overshoot,
         backgroundImage: `url(${src})`,
         backgroundSize,
+        backgroundRepeat,
         backgroundPosition: "center",
         opacity,
+        filter,
         mixBlendMode: blendMode as React.CSSProperties["mixBlendMode"],
       }}
     />
