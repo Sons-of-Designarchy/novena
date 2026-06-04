@@ -4,18 +4,21 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 const IMAGES = [
-  { src: "/gallery/BENJAMIN_F200_0490_2.webp",              w: 750, h: 505  },
-  { src: "/gallery/BENJAMIN_F200_0499_18.webp",             w: 750, h: 1114 },
-  { src: "/gallery/dblack+2024-11-13+133758.311.webp",      w: 750, h: 523  },
-  { src: "/gallery/dblack+2024-11-13+140443.553+copy.webp", w: 750, h: 482  },
-  { src: "/gallery/BENJAMIN_F200_0490_22.webp",             w: 750, h: 513  },
-  { src: "/gallery/BENJAMIN_F200_0499_23.webp",             w: 750, h: 505  },
-  { src: "/gallery/dblack+2024-11-13+140359.223.webp",      w: 750, h: 523  },
-  { src: "/gallery/BENJAMIN_F200_0499_27.webp",             w: 750, h: 505  },
+  { src: "/gallery/NOVENA-6020.jpg", w: 1500, h: 1000 },
+  { src: "/gallery/NOVENA-6903.jpg", w: 1000, h: 1500 },
+  { src: "/gallery/NOVENA-6474.jpg", w: 1500, h: 1000 },
+  { src: "/gallery/NOVENA-7085.jpg", w: 1000, h: 1500 },
+  { src: "/gallery/NOVENA-7709.jpg", w: 1000, h: 1500 },
+  { src: "/gallery/NOVENA-8145.jpg", w: 1000, h: 1500 },
+  { src: "/gallery/NOVENA-6925.jpg", w: 1000, h: 1500 },
+  { src: "/gallery/NOVENA-6719.jpg", w: 1500, h: 1000 },
+  { src: "/gallery/NOVENA-7706.jpg", w: 1000, h: 1500 },
+  { src: "/gallery/NOVENA-6772.jpg", w: 1500, h: 1000 },
+  { src: "/gallery/NOVENA-7767.jpg", w: 1000, h: 1500 },
 ];
 
-const col1imgs = [...IMAGES.slice(0, 4), ...IMAGES.slice(0, 4), ...IMAGES.slice(0, 4)];
-const col2imgs = [...IMAGES.slice(4), ...IMAGES.slice(4), ...IMAGES.slice(4)];
+const col1imgs = [...IMAGES.slice(0, 6), ...IMAGES.slice(0, 6), ...IMAGES.slice(0, 6)];
+const col2imgs = [...IMAGES.slice(6), ...IMAGES.slice(6), ...IMAGES.slice(6)];
 
 export default function GalleryColumns() {
   const wrapRef = useRef<HTMLDivElement>(null);
