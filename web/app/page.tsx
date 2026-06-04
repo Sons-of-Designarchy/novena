@@ -187,7 +187,7 @@ export default function Home() {
               style={{ fontFamily: "var(--font-highway)" }}
             >
               <p>
-                Un estudio de grabación independiente en la Colonia Cuauhtémoc, Ciudad de México —
+                Un estudio de grabación independiente en Col. Narvarte, Ciudad de México —
                 construido para músicos que quieren trabajar con total libertad creativa.
                 Sin presión de reloj, sin ambiente corporativo.
               </p>

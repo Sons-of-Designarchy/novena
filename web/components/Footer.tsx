@@ -98,7 +98,7 @@ export default function Footer() {
                   className="text-ivory/40 text-xs tracking-[0.15em] uppercase leading-[1.9]"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
-                  Colonia Cuauhtémoc<br />Mexico City, MX
+                  Mítla 145, Col. Narvarte<br />Del. Benito Júarez, CDMX
                 </p>
               </div>
             </div>

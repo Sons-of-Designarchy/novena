@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 const MAPS_URL =
-  "https://www.google.com/maps?q=Mitla+145,+Narvarte+Poniente,+CDMX";
+  "https://www.google.com/maps?q=M%C3%ADtla+145%2C+Col+Narvarte%2C+Del.+Benito+J%C3%BAarez%2C+CDMX";
 
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
@@ -48,7 +48,6 @@ export default function Contact() {
           El espacio está listo para tu proyecto.
         </h1>
 
-        {/* Form */}
         {sent ? (
           <div className="border border-sand/50 px-8 py-12 mb-12">
             <p
@@ -138,7 +137,7 @@ export default function Contact() {
           </form>
         )}
 
-        {/* Dirección + mail — 2 columnas */}
+        {/* Dirección + mail */}
         <div className="grid sm:grid-cols-2 gap-8">
           <div>
             <p
@@ -151,10 +150,10 @@ export default function Contact() {
               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group text-dusk text-sm hover:text-flame transition-colors"
+              className="text-dusk text-sm hover:text-flame transition-colors"
               style={{ fontFamily: "var(--font-highway-exp)" }}
             >
-              Mitla 145, Narvarte Poniente, CDMX
+              Mítla 145, Col. Narvarte<br />Del. Benito Júarez, CDMX
             </a>
           </div>
           <div>

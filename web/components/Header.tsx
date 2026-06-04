@@ -7,10 +7,12 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
 
 const leftLinks  = [
-  { href: "/gallery",   label: "Galería"  },
-  { href: "/equipment", label: "Equipo"   },
+  { href: "/",          label: "Home"    },
+  { href: "/equipment", label: "Gear"    },
+  { href: "/team",      label: "Team"    },
 ];
 const rightLinks = [
+  { href: "/gallery",   label: "Galería"  },
   { href: "/artists",   label: "Artistas" },
   { href: "/contact",   label: "Contacto" },
 ];

@@ -2,31 +2,26 @@
 
 import { useRef, useEffect, useCallback } from "react";
 
-const HEIGHT = 480;
-const SPEED  = 0.6; // px per frame
+const SPEED = 0.6;
 
 export default function GearSlider({ images }: { images: string[] }) {
-  const trackRef  = useRef<HTMLDivElement>(null);
-  const rafRef    = useRef(0);
-  const paused    = useRef(false);
-  const drag      = useRef({ active: false, startX: 0, scrollLeft: 0 });
+  const trackRef = useRef<HTMLDivElement>(null);
+  const rafRef   = useRef(0);
+  const paused   = useRef(false);
+  const drag     = useRef({ active: false, startX: 0, scrollLeft: 0 });
 
-  // Auto-scroll loop — resets to 0 when halfway (seamless loop via duplicated images)
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
-
     const tick = () => {
       if (!paused.current && el) {
         el.scrollLeft += SPEED;
-        // Seamless loop: when we've scrolled past the first set, jump back
         if (el.scrollLeft >= el.scrollWidth / 2) {
           el.scrollLeft -= el.scrollWidth / 2;
         }
       }
       rafRef.current = requestAnimationFrame(tick);
     };
-
     rafRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
@@ -53,25 +48,17 @@ export default function GearSlider({ images }: { images: string[] }) {
     if (el) el.style.cursor = "grab";
   }, []);
 
-  // Duplicate images for seamless infinite loop
   const doubled = [...images, ...images];
 
   return (
     <div
       ref={trackRef}
-      className="flex overflow-x-auto"
-      style={{
-        height: HEIGHT,
-        cursor: "grab",
-        scrollbarWidth: "none",
-        msOverflowStyle: "none",
-        lineHeight: 0,
-      }}
+      className="flex overflow-x-auto h-[240px] md:h-[360px] lg:h-[480px]"
+      style={{ cursor: "grab", scrollbarWidth: "none", msOverflowStyle: "none", lineHeight: 0 }}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={stopDrag}
       onMouseLeave={stopDrag}
-      onMouseEnter={() => { paused.current = true; }}
     >
       {doubled.map((src, i) => (
         // eslint-disable-next-line @next/next/no-img-element
@@ -80,13 +67,7 @@ export default function GearSlider({ images }: { images: string[] }) {
           src={src}
           alt=""
           draggable={false}
-          style={{
-            height: HEIGHT,
-            width: "auto",
-            display: "block",
-            flexShrink: 0,
-            pointerEvents: "none",
-          }}
+          style={{ height: "100%", width: "auto", display: "block", flexShrink: 0, pointerEvents: "none" }}
         />
       ))}
     </div>

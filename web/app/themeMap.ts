@@ -21,7 +21,8 @@ export const DEFAULT_THEME: Theme = "azul";
  */
 export const FOOTER_BG_BY_PATH: Record<string, string> = {
   "/":        "#B83A08", // naranja
-  "/gallery": "#7A1C1C", // rojizo original
+  "/gallery": "#7A1C1C", // rojizo
+  "/team":    "#7A6810", // golden ochre
 };
 
 export function themeForPath(path: string): Theme {

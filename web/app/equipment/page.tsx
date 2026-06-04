@@ -2,7 +2,7 @@ import { readdirSync } from "fs";
 import path from "path";
 import GearSlider from "@/components/GearSlider";
 
-export const metadata = { title: "Equipo — Estudio Novena" };
+export const metadata = { title: "Gear — Estudio Novena" };
 
 function getGearImages(): string[] {
   const dir = path.join(process.cwd(), "public/gear");
@@ -56,59 +56,53 @@ export default function Equipment() {
   const gearImages = getGearImages();
   return (
     <div>
-    <section className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
 
-      {/* Header */}
-      <div className="mb-14 md:mb-20" data-animate>
-        <p
-          className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
-          style={{ fontFamily: "var(--font-highway)" }}
-        >
-          Con qué trabajamos
-        </p>
-        <h1
-          className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt"
-          style={{ fontFamily: "var(--font-highway-exp)" }}
-        >
-          Equipo
-        </h1>
-      </div>
+        <div className="mb-14 md:mb-20" data-animate>
+          <p
+            className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
+            style={{ fontFamily: "var(--font-highway)" }}
+          >
+            Con qué trabajamos
+          </p>
+          <h1
+            className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt"
+            style={{ fontFamily: "var(--font-highway-exp)" }}
+          >
+            Gear
+          </h1>
+        </div>
 
-      {/* Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-        {gear.map((section) => (
-          <div key={section.category}>
-            <h2
-              className="text-sm tracking-[0.3em] uppercase text-cobalt mb-4 pb-3 border-b border-sand/70"
-              style={{ fontFamily: "var(--font-highway)" }}
-            >
-              {section.category}
-            </h2>
-            <ul className="space-y-[6px]">
-              {section.items.map((item) => (
-                <li
-                  key={item}
-                  className="text-dusk/70 text-sm flex items-start gap-2"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  <span className="text-sand mt-[3px] shrink-0 text-xs">—</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+          {gear.map((section) => (
+            <div key={section.category}>
+              <h2
+                className="text-sm tracking-[0.3em] uppercase text-cobalt mb-4 pb-3 border-b border-sand/70"
+                style={{ fontFamily: "var(--font-highway)" }}
+              >
+                {section.category}
+              </h2>
+              <ul className="space-y-[6px]">
+                {section.items.map((item) => (
+                  <li
+                    key={item}
+                    className="text-dusk/70 text-sm flex items-start gap-2"
+                    style={{ fontFamily: "var(--font-serif)" }}
+                  >
+                    <span className="text-sand mt-[3px] shrink-0 text-xs">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-    </section>
+      </section>
 
-    {/* Full-bleed gear slider */}
-    {gearImages.length > 0 && (
-      <div className="mt-16 md:mt-24">
+      {gearImages.length > 0 && (
         <GearSlider images={gearImages} />
-      </div>
-    )}
-
+      )}
     </div>
   );
 }
