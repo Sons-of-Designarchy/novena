@@ -20,6 +20,7 @@ export const DEFAULT_THEME: Theme = "azul";
  * Las rutas no listadas usan el tono del tema (--color-footer).
  */
 export const FOOTER_BG_BY_PATH: Record<string, string> = {
+  "/":        "#B83A08", // naranja
   "/gallery": "#7A1C1C", // rojizo original
 };
 

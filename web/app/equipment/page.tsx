@@ -1,4 +1,15 @@
+import { readdirSync } from "fs";
+import path from "path";
+import GearSlider from "@/components/GearSlider";
+
 export const metadata = { title: "Equipo — Estudio Novena" };
+
+function getGearImages(): string[] {
+  const dir = path.join(process.cwd(), "public/gear");
+  return readdirSync(dir)
+    .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
+    .map(f => `/gear/${encodeURIComponent(f)}`);
+}
 
 const gear: { category: string; items: string[] }[] = [
   { category: "Computadora", items: ["Mac Studio M1"] },
@@ -42,6 +53,7 @@ const gear: { category: string; items: string[] }[] = [
 ];
 
 export default function Equipment() {
+  const gearImages = getGearImages();
   return (
     <div>
     <section className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
@@ -87,7 +99,16 @@ export default function Equipment() {
           </div>
         ))}
       </div>
+
     </section>
+
+    {/* Full-bleed gear slider */}
+    {gearImages.length > 0 && (
+      <div className="mt-16 md:mt-24">
+        <GearSlider images={gearImages} />
+      </div>
+    )}
+
     </div>
   );
 }

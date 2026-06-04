@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CornerIcons from "@/components/CornerIcons";
-import ThemeToggle from "@/components/ThemeToggle";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { THEME_BY_PATH, DEFAULT_THEME } from "./themeMap";
@@ -34,7 +33,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ScrollReveal />
           <main className="flex-1">{children}</main>
           <Footer />
-          <ThemeToggle />
         </ThemeProvider>
       </body>
     </html>
