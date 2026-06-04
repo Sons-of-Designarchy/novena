@@ -18,7 +18,7 @@ const rightLinks = [
 const LOGOS: Record<string, string> = {
   azul:    "/logos/logo-azul.png",
   naranja: "/logos/logo-naranja.png",
-  verde:   "/logos/logo-black.png",
+  verde:   "/logos/logo-verde.svg",
 };
 
 export default function Header() {
