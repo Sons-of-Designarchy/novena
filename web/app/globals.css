@@ -50,6 +50,11 @@
   --text-7xl:  5.5rem;     /* 88px */
 }
 
+/* ── Footer: tono oscuro del tema por defecto ── */
+:root {
+  --color-footer: var(--color-forest);
+}
+
 /* ── Theme: naranja (cream · orange accent) ──
    El tema solo cambia el ACENTO (cobalt → títulos).
    El texto de cuerpo (dusk) se queda en el negro por defecto. */
@@ -59,6 +64,7 @@
   --color-rust:   #7A1500;
   --color-cobalt: #B83A08;
   --color-mist:   #FFE4D0;
+  --color-footer: #B83A08; /* más naranja que forest */
 }
 
 /* ── Theme: verde (cream · emerald accent) ── */

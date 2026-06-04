@@ -15,6 +15,14 @@ export const THEME_BY_PATH: Record<string, Theme> = {
 
 export const DEFAULT_THEME: Theme = "azul";
 
+/**
+ * Override del fondo del footer por ruta.
+ * Las rutas no listadas usan el tono del tema (--color-footer).
+ */
+export const FOOTER_BG_BY_PATH: Record<string, string> = {
+  "/gallery": "#7A1C1C", // rojizo original
+};
+
 export function themeForPath(path: string): Theme {
   return THEME_BY_PATH[path] ?? DEFAULT_THEME;
 }

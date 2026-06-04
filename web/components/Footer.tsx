@@ -1,11 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import ParallaxTexture from "./ParallaxTexture";
+import { FOOTER_BG_BY_PATH } from "@/app/themeMap";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const bg = FOOTER_BG_BY_PATH[pathname] ?? "var(--color-footer)";
 
   return (
-    <footer className="text-ivory relative overflow-hidden border-t border-ivory/10" style={{ backgroundColor: "var(--color-forest)" }}>
+    <footer className="text-ivory relative overflow-hidden border-t border-ivory/10" style={{ backgroundColor: bg }}>
       <ParallaxTexture
         src="/textures/halftone-wide-01.png"
         speed={0.45}
