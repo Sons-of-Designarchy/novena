@@ -136,15 +136,16 @@ body {
 
 /* ── Fade up ──────────────────────────────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(48px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-up {
-  animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+  animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards;
 }
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
+.delay-100 { animation-delay: 0.12s; }
+.delay-200 { animation-delay: 0.24s; }
+.delay-300 { animation-delay: 0.38s; }
+.delay-400 { animation-delay: 0.52s; }
 
 /* ── Hero text clip ───────────────────────── */
 @keyframes revealText {
@@ -165,6 +166,15 @@ body {
 [data-animate][data-visible] {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Image dark-reveal ────────────────────── */
+.img-reveal {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+.img-reveal.img-loaded {
+  opacity: 1;
 }
 
 /* ── Reduced motion ───────────────────────── */

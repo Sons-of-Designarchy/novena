@@ -60,14 +60,16 @@ export default function Equipment() {
 
         <div className="mb-14 md:mb-20" data-animate>
           <p
-            className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
-            style={{ fontFamily: "var(--font-highway)" }}
+            className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4
+                       opacity-0 animate-fade-up"
+            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
           >
             Con qué trabajamos
           </p>
           <h1
-            className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt"
-            style={{ fontFamily: "var(--font-highway-exp)" }}
+            className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
+                       opacity-0 animate-fade-up delay-100"
+            style={{ fontFamily: "var(--font-highway-exp)", animationFillMode: "forwards" }}
           >
             Gear
           </h1>

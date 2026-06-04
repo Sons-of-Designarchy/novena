@@ -1,77 +1,94 @@
+import ParallaxTexture from "@/components/ParallaxTexture";
+
 export const metadata = { title: "Artistas — Estudio Novena" };
 
 export default function Artists() {
   return (
-    <div>
-    <section className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+    <div className="relative overflow-hidden">
 
-      {/* Header */}
-      <div className="mb-14 md:mb-20" data-animate>
-        <p
-          className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
-          style={{ fontFamily: "var(--font-highway)" }}
-        >
-          Con quiénes hemos trabajado
-        </p>
-        <h1
-          className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt"
-          style={{ fontFamily: "var(--font-highway-exp)" }}
-        >
-          Artistas
-        </h1>
-      </div>
+      <ParallaxTexture
+        src="/textures/halftone-06.png"
+        speed={0.1}
+        opacity={0.06}
+        blendMode="multiply"
+        backgroundSize="600px"
+        backgroundRepeat="repeat"
+      />
 
-      <div className="grid md:grid-cols-[1fr_400px] lg:grid-cols-[1fr_480px] gap-16 items-start">
+      <section className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
 
-        {/* Left copy */}
-        <div>
+        {/* Header */}
+        <div className="mb-14 md:mb-20">
           <p
-            className="text-dusk/60 text-base leading-relaxed mb-10 max-w-md"
-            style={{ fontFamily: "var(--font-serif)" }}
+            className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4
+                       opacity-0 animate-fade-up"
+            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
           >
-            Una selección de los artistas y proyectos que han grabado, mezclado o
-            producido en Estudio Novena. Aquí abajo, una playlist de lo que ha
-            salido de nuestras sesiones.
+            Con quiénes hemos trabajado
           </p>
-
-          {/* Artist list hint */}
-          <ul className="space-y-3 border-t border-sand/60 pt-6">
-            {["Benjamin Walker", "Los Bunkers", "Charli XCX", "Libre", "Noviembre"].map((name) => (
-              <li
-                key={name}
-                className="flex items-center gap-3 text-dusk/50 text-sm pb-3 border-b border-sand/30"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                <span className="w-1 h-1 rounded-full bg-cobalt shrink-0" />
-                {name}
-              </li>
-            ))}
-          </ul>
+          <h1
+            className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
+                       opacity-0 animate-fade-up delay-100"
+            style={{ fontFamily: "var(--font-highway-exp)", animationFillMode: "forwards" }}
+          >
+            Artistas
+          </h1>
         </div>
 
-        {/* Spotify — dark card */}
-        <div className="bg-cobalt p-1">
-          <iframe
-            title="Estudio Novena Friends"
-            src="https://open.spotify.com/embed/playlist/5ie7WxjIdQ42qlFVFcUt1r?utm_source=generator&theme=0"
-            width="100%"
-            height="500"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            style={{ border: 0, display: "block" }}
-          />
-          <div className="px-3 py-3 flex items-center gap-2">
-            <span
-              className="text-sm tracking-[0.25em] uppercase text-ivory/70"
-              style={{ fontFamily: "var(--font-highway)" }}
+        <div className="grid md:grid-cols-[1fr_400px] lg:grid-cols-[1fr_480px] gap-16 items-start">
+
+          {/* Left copy */}
+          <div>
+            <p
+              className="text-dusk/60 text-base leading-relaxed mb-10 max-w-md"
+              style={{ fontFamily: "var(--font-serif)" }}
             >
-              Estudio Novena Friends — Lista de reproducción
-            </span>
-          </div>
-        </div>
+              Una selección de los artistas y proyectos que han grabado, mezclado o
+              producido en Estudio Novena. Aquí abajo, una playlist de lo que ha
+              salido de nuestras sesiones.
+            </p>
 
-      </div>
-    </section>
+            <ul className="border-t border-sand/60">
+              {["Benjamin Walker", "Los Bunkers", "Charli XCX", "Libre", "Noviembre"].map((name) => (
+                <li
+                  key={name}
+                  className="text-cobalt uppercase border-b border-sand/40 py-4"
+                  style={{
+                    fontFamily: "var(--font-highway-exp)",
+                    fontSize: "clamp(1.5rem, 3.5vw, 2.6rem)",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 1,
+                  }}
+                >
+                  {name}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Spotify — dark card */}
+          <div className="bg-cobalt p-1 rounded-2xl overflow-hidden">
+            <iframe
+              title="Estudio Novena Friends"
+              src="https://open.spotify.com/embed/playlist/5ie7WxjIdQ42qlFVFcUt1r?utm_source=generator&theme=0"
+              width="100%"
+              height="500"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              style={{ border: 0, display: "block" }}
+            />
+            <div className="px-3 py-3">
+              <span
+                className="text-sm tracking-[0.25em] uppercase text-ivory/70"
+                style={{ fontFamily: "var(--font-highway)" }}
+              >
+                Estudio Novena Friends — Lista de reproducción
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
     </div>
   );
 }

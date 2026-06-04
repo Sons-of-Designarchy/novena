@@ -161,9 +161,9 @@ export default function Home() {
               className="absolute top-0 right-0 -z-10 w-[130px] md:w-[210px] h-[400px] md:h-[600px] overflow-hidden pointer-events-none"
             >
               <ParallaxImage
-                src="/gallery/novena-textura-1.png"
+                src="/textures/halftone-wide-01.png"
                 speed={0.28}
-                opacity={0.2}
+                opacity={0.12}
               />
             </div>
 

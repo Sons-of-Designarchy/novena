@@ -35,14 +35,16 @@ export default function Team() {
     <div style={{ backgroundColor: "#E4DAC8" }}>
       <section className="max-w-7xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-10">
         <p
-          className="text-sm tracking-[0.35em] uppercase text-dusk/30 mb-4"
-          style={{ fontFamily: "var(--font-highway)" }}
+          className="text-sm tracking-[0.35em] uppercase text-dusk/30 mb-4
+                     opacity-0 animate-fade-up"
+          style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
         >
           Con quíen trabajamos
         </p>
         <h1
-          className="uppercase leading-none text-cobalt text-[clamp(2.5rem,6vw,5.5rem)]"
-          style={{ fontFamily: "var(--font-highway-exp)", letterSpacing: "-0.02em" }}
+          className="uppercase leading-none text-cobalt text-[clamp(2.5rem,6vw,5.5rem)]
+                     opacity-0 animate-fade-up delay-100"
+          style={{ fontFamily: "var(--font-highway-exp)", letterSpacing: "-0.02em", animationFillMode: "forwards" }}
         >
           The Amigos
         </h1>
