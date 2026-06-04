@@ -44,7 +44,7 @@ export default function Home() {
             boxShadow: "0 4px 48px rgba(26,26,24,0.10), 0 1px 0px rgba(26,26,24,0.06)",
           }}
         >
-          {/* ── Costado derecho — altura centrada, parallax ── */}
+          {/* ── Costado derecho — altura centrada, parallax (colores originales) ── */}
           <ScrollSwapImage
             step={180}
             parallax={0.1}
