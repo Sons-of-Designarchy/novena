@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ParallaxTexture from "./ParallaxTexture";
@@ -130,14 +129,7 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom bar ───────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-between gap-4">
-        <Image
-          src="/logos/logo-white.png"
-          alt="Estudio Novena"
-          width={72}
-          height={24}
-          className="h-4 w-auto opacity-20"
-        />
+      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-end gap-4">
         <p
           className="text-sm tracking-[0.2em] uppercase text-ivory/20"
           style={{ fontFamily: "var(--font-highway)" }}
