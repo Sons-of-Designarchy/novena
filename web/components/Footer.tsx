@@ -3,11 +3,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ParallaxTexture from "./ParallaxTexture";
-import { FOOTER_BG_BY_PATH } from "@/app/themeMap";
+import { FOOTER_BG_BY_PATH, THEME_BY_PATH, DEFAULT_THEME } from "@/app/themeMap";
+
+const THEME_FOOTER_COLORS: Record<string, string> = {
+  azul:    "#0F2870",
+  naranja: "#7A1C1C",
+  verde:   "#0F5530",
+};
 
 export default function Footer() {
   const pathname = usePathname();
-  const bg = FOOTER_BG_BY_PATH[pathname] ?? "var(--color-footer)";
+  const theme = THEME_BY_PATH[pathname] ?? DEFAULT_THEME;
+  const bg = FOOTER_BG_BY_PATH[pathname] ?? THEME_FOOTER_COLORS[theme] ?? "#0F2870";
 
   return (
     <footer className="text-ivory relative overflow-hidden border-t border-ivory/10" style={{ backgroundColor: bg }}>
