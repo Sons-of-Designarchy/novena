@@ -5,7 +5,7 @@ import ParallaxTexture from "./ParallaxTexture";
 export default function Footer() {
 
   return (
-    <footer className="text-ivory relative overflow-hidden border-t border-ivory/10" style={{ backgroundColor: "#7A1C1C" }}>
+    <footer className="text-ivory relative overflow-hidden border-t border-ivory/10" style={{ backgroundColor: "var(--color-forest)" }}>
       <ParallaxTexture
         src="/textures/halftone-wide-01.png"
         speed={0.45}
