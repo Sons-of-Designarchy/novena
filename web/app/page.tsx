@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ParallaxTexture from "@/components/ParallaxTexture";
 import ParallaxImage from "@/components/ParallaxImage";
-import HalftoneImage from "@/components/HalftoneImage";
 import SvgIcon from "@/components/SvgIcon";
 import HeroCollage from "@/components/HeroCollage";
 
@@ -218,13 +217,14 @@ export default function Home() {
           </div>
 
           {/* RIGHT — single photo, bleeds to edge, no padding */}
-          <HalftoneImage
-            src="/gallery/BENJAMIN_F200_0490_2.webp"
-            alt="Session at Estudio Novena"
-            fill
-            containerClassName="hidden md:block min-h-[600px] h-full"
-            className="object-cover object-center"
-          />
+          <div className="relative overflow-hidden hidden md:block min-h-[600px] h-full">
+            <Image
+              src="/gallery/NOVENA-7905.jpg"
+              alt="Session at Estudio Novena"
+              fill
+              className="object-cover object-center"
+            />
+          </div>
 
         </div>
       </section>
@@ -240,13 +240,11 @@ export default function Home() {
       >
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/gallery/dblack+2024-11-13+133758.311.webp"
+            src="/gallery/NOVENA-8173.jpg"
             alt="Estudio Novena"
             fill
             className="object-cover object-center"
-            style={{ filter: "contrast(1.32) brightness(0.9) sepia(0.29) saturate(0.8)" }}
           />
-          <div className="halftone-dots" />
         </div>
         {/* Landscape split texture — screen blend adds a color-field effect */}
         <ParallaxTexture
