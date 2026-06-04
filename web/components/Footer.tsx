@@ -7,7 +7,7 @@ import { FOOTER_BG_BY_PATH, THEME_BY_PATH, DEFAULT_THEME } from "@/app/themeMap"
 
 const THEME_FOOTER_COLORS: Record<string, string> = {
   azul:    "#0F2870",
-  naranja: "#7A1C1C",
+  naranja: "#B83A08",
   verde:   "#0F5530",
 };
 
@@ -21,7 +21,7 @@ export default function Footer() {
       <ParallaxTexture
         src="/textures/halftone-wide-01.png"
         speed={0.45}
-        opacity={0.18}
+        opacity={0.1}
         blendMode="overlay"
         backgroundSize="contain"
         overshoot="-20%"
