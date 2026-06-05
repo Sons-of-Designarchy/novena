@@ -66,7 +66,7 @@ export default function Home() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
 
           <p
-            className="text-cobalt/40 text-xs tracking-[0.35em] uppercase mb-6
+            className="text-cobalt text-xs tracking-[0.35em] uppercase mb-6
                        opacity-0 animate-fade-up"
             style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
           >
@@ -88,7 +88,7 @@ export default function Home() {
           </h1>
 
           <p
-            className="mt-5 text-dusk/45 italic text-lg
+            className="mt-5 text-ash italic text-lg
                        opacity-0 animate-fade-up delay-200"
             style={{ fontFamily: "var(--font-serif)", animationFillMode: "forwards" }}
           >
@@ -120,16 +120,16 @@ export default function Home() {
             <div key={i} className="flex items-center shrink-0">
               {item.type === "text" && (
                 <span
-                  className="text-ivory/70 uppercase text-2xl md:text-3xl tracking-[0.12em] leading-none"
+                  className="text-ivory uppercase text-2xl md:text-3xl tracking-[0.12em] leading-none"
                   style={{ fontFamily: "var(--font-highway-exp)" }}
                 >
                   {item.value}
                 </span>
               )}
               {item.type === "icon" && (
-                <SvgIcon name={item.value} className="w-8 h-8 md:w-9 md:h-9 text-ivory opacity-60" />
+                <SvgIcon name={item.value} className="w-8 h-8 md:w-9 md:h-9 text-ivory" />
               )}
-              <span className="ml-8 text-ivory/20 text-xl leading-none">·</span>
+              <span className="ml-8 text-ivory text-xl leading-none">·</span>
             </div>
           ))}
         </div>
@@ -168,7 +168,7 @@ export default function Home() {
             </div>
 
             <p
-              className="text-sm font-bold tracking-[0.35em] uppercase text-dusk/40 mb-5"
+              className="text-sm font-bold tracking-[0.35em] uppercase text-ash mb-5"
               style={{ fontFamily: "var(--font-highway)" }}
             >
               01 — El Estudio
@@ -183,7 +183,7 @@ export default function Home() {
             </h2>
 
             <div
-              className="space-y-5 text-dusk/60 text-base leading-[1.75] max-w-[44ch] mb-10"
+              className="space-y-5 text-ash text-base leading-[1.75] max-w-[44ch] mb-10"
               style={{ fontFamily: "var(--font-highway)" }}
             >
               <p>
@@ -263,9 +263,12 @@ export default function Home() {
         className="relative overflow-hidden border-y border-sand/50"
       >
         <ParallaxTexture
-          src="/textures/grain-02.png"
-          speed={0.4}
-          opacity={0.12}
+          src="/textures/halftone-trippy-01.jpg"
+          speed={0.15}
+          opacity={0.1}
+          overshoot="-100%"
+          backgroundSize="1400px"
+          backgroundRepeat="repeat"
           blendMode="multiply"
         />
 
@@ -283,7 +286,7 @@ export default function Home() {
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <p
-                  className="text-sm tracking-[0.3em] uppercase text-dusk/25 mb-2"
+                  className="text-sm tracking-[0.3em] uppercase text-ash mb-2"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   {label}

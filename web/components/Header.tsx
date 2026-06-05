@@ -30,14 +30,14 @@ export default function Header() {
 
   const linkClass = (href: string) =>
     `text-sm tracking-[0.18em] uppercase transition-colors whitespace-nowrap
-     ${pathname === href ? "text-dusk" : "text-dusk/45 hover:text-dusk"}`;
+     ${pathname === href ? "text-cobalt" : "text-ash hover:text-cobalt"}`;
 
   return (
     <>
       {/* ── Floating pill nav ───────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 pointer-events-none">
         <nav
-          className="pointer-events-auto flex items-center w-full max-w-2xl
+          className="pointer-events-auto flex items-center w-full max-w-3xl
                      rounded-[8px] border border-sand/50
                      px-6 h-12
                      shadow-[0_2px_24px_rgba(26,26,24,0.06)]"
@@ -85,7 +85,7 @@ export default function Header() {
 
           {/* Mobile: hamburger */}
           <button
-            className="md:hidden text-dusk/50 hover:text-dusk transition-colors ml-auto"
+            className="md:hidden text-dusk transition-colors ml-auto"
             onClick={() => setOpen(v => !v)}
             aria-label="Menu"
           >
@@ -117,7 +117,7 @@ export default function Header() {
               <Link key={l.href} href={l.href}
                 onClick={() => setOpen(false)}
                 className={`text-sm tracking-[0.15em] uppercase transition-colors
-                  ${pathname === l.href ? "text-dusk" : "text-dusk/45"}`}
+                  ${pathname === l.href ? "text-cobalt" : "text-ash"}`}
                 style={{ fontFamily: "var(--font-highway)" }}>
                 {l.label}
               </Link>

@@ -20,7 +20,7 @@ export default function Artists() {
         {/* Header */}
         <div className="mb-14 md:mb-20">
           <p
-            className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4
+            className="text-sm tracking-[0.3em] uppercase text-ash mb-4
                        opacity-0 animate-fade-up"
             style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
           >
@@ -40,7 +40,7 @@ export default function Artists() {
           {/* Left copy */}
           <div>
             <p
-              className="text-dusk/60 text-base leading-relaxed mb-10 max-w-md"
+              className="text-ash text-base leading-relaxed mb-10 max-w-md"
               style={{ fontFamily: "var(--font-serif)" }}
             >
               Una selección de los artistas y proyectos que han grabado, mezclado o
@@ -79,7 +79,7 @@ export default function Artists() {
             />
             <div className="px-3 py-3">
               <span
-                className="text-sm tracking-[0.25em] uppercase text-ivory/70"
+                className="text-sm tracking-[0.25em] uppercase text-ivory"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
                 Estudio Novena Friends — Lista de reproducción

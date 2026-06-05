@@ -3,14 +3,14 @@ import path from "path";
 
 export const metadata = { title: "The Amigos — Estudio Novena" };
 
-const TEAM_DATA: Record<string, { name: string; role: string }> = {
-  rayito: { name: "Rayito",          role: "El Emperador"            },
-  ben:    { name: "Ben Bultrini",    role: "Studio Manager"          },
-  felipe: { name: "Felipe Castro",   role: "Prod / Mix / Rec"        },
-  alex:   { name: "Alejandro Yelin", role: "Prod / Eng / Comp"       },
-  tom:    { name: "Tom Kearney",     role: "Prod / Eng"              },
-  dan:    { name: "Dan Pliego",      role: "Tech / Drums"            },
-  flavio: { name: "Fabio Lendrum",   role: "Prod / Comp / Vibe-curator" },
+const TEAM_DATA: Record<string, { name: string; role: string; order: number }> = {
+  ben:    { name: "Ben Bultrini",    role: "Studio Manager",             order: 1 },
+  felipe: { name: "Felipe Castro",   role: "Prod / Mix / Rec",           order: 2 },
+  alex:   { name: "Alejandro Yelin", role: "Prod / Eng / Comp",          order: 3 },
+  tom:    { name: "Tom Kearney",     role: "Prod / Eng",                 order: 4 },
+  flavio: { name: "Fabio Lendrum",   role: "Prod / Comp / Vibe-curator", order: 5 },
+  dan:    { name: "Dan Pliego",      role: "Tech / Drums",               order: 6 },
+  rayito: { name: "Rayito",          role: "El Emperador",               order: 7 },
 };
 
 function getTeamMembers(): { src: string; name: string; role: string }[] {
@@ -19,12 +19,11 @@ function getTeamMembers(): { src: string; name: string; role: string }[] {
     .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
     .map(f => {
       const base = f.replace(/\.[^.]+$/, "");
-      const num  = parseInt(base.replace(/\D/g, "")) || 99;
       const key  = base.split("-")[0].toLowerCase();
-      const data = TEAM_DATA[key] ?? { name: key, role: "" };
-      return { src: `/team/${encodeURIComponent(f)}`, ...data, num };
+      const data = TEAM_DATA[key] ?? { name: key, role: "", order: 99 };
+      return { src: `/team/${encodeURIComponent(f)}`, ...data };
     })
-    .sort((a, b) => a.num - b.num)
+    .sort((a, b) => a.order - b.order)
     .map(({ src, name, role }) => ({ src, name, role }));
 }
 
@@ -35,7 +34,7 @@ export default function Team() {
     <div style={{ backgroundColor: "#E4DAC8" }}>
       <section className="max-w-7xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-10">
         <p
-          className="text-sm tracking-[0.35em] uppercase text-dusk/30 mb-4
+          className="text-sm tracking-[0.35em] uppercase text-ash mb-4
                      opacity-0 animate-fade-up"
           style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
         >
@@ -70,7 +69,7 @@ export default function Team() {
                   {name}
                 </p>
                 <p
-                  className="text-xs text-dusk/40 mt-1 italic"
+                  className="text-xs text-ash mt-1 italic"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
                   {role}

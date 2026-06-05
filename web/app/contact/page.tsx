@@ -32,7 +32,7 @@ export default function Contact() {
       <div className="flex flex-col justify-center px-5 md:px-12 lg:px-16 py-16 md:py-24">
 
         <p
-          className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4"
+          className="text-sm tracking-[0.3em] uppercase text-ash mb-4"
           style={{ fontFamily: "var(--font-highway)" }}
           data-animate
         >
@@ -56,7 +56,7 @@ export default function Contact() {
             >
               Mensaje enviado.
             </p>
-            <p className="text-dusk/40 text-sm" style={{ fontFamily: "var(--font-serif)" }}>
+            <p className="text-ash text-sm" style={{ fontFamily: "var(--font-serif)" }}>
               Estaremos en contacto pronto.
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function Contact() {
         <div className="grid sm:grid-cols-2 gap-8">
           <div>
             <p
-              className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-2"
+              className="text-sm tracking-[0.3em] uppercase text-ash mb-2"
               style={{ fontFamily: "var(--font-highway)" }}
             >
               Ubicación
@@ -158,7 +158,7 @@ export default function Contact() {
           </div>
           <div>
             <p
-              className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-2"
+              className="text-sm tracking-[0.3em] uppercase text-ash mb-2"
               style={{ fontFamily: "var(--font-highway)" }}
             >
               Email

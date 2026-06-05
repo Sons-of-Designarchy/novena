@@ -17,7 +17,10 @@ export default function Footer() {
   const bg = FOOTER_BG_BY_PATH[pathname] ?? THEME_FOOTER_COLORS[theme] ?? "#0F2870";
 
   return (
-    <footer className="text-ivory relative overflow-hidden border-t border-ivory/10" style={{ backgroundColor: bg }}>
+    <footer
+      className="text-ivory relative overflow-hidden border-t border-ivory/10"
+      style={{ backgroundColor: bg }}
+    >
       <ParallaxTexture
         src="/textures/halftone-wide-01.png"
         speed={0.45}
@@ -35,7 +38,7 @@ export default function Footer() {
             {/* Col 1 — CTA */}
             <div className="py-14 md:py-20 md:pr-12" data-animate>
               <p
-                className="text-sm font-bold tracking-[0.35em] uppercase text-ivory/40 mb-6"
+                className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
                 01 — Reservar
@@ -63,7 +66,7 @@ export default function Footer() {
             <div className="py-14 md:py-20 md:pl-12 flex flex-col justify-between gap-10">
               <div>
                 <p
-                  className="text-sm font-bold tracking-[0.35em] uppercase text-ivory/40 mb-6"
+                  className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   02 — Síguenos
@@ -72,7 +75,7 @@ export default function Footer() {
                   href="https://instagram.com/estudionovena"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-ivory/50 hover:text-ivory transition-colors"
+                  className="flex items-center gap-3 text-ivory transition-opacity hover:opacity-80"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -89,13 +92,13 @@ export default function Footer() {
               </div>
               <div>
                 <p
-                  className="text-sm tracking-[0.35em] uppercase text-ivory/25 mb-3"
+                  className="text-sm tracking-[0.35em] uppercase text-ivory mb-3"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   Estudio
                 </p>
                 <p
-                  className="text-ivory/40 text-xs tracking-[0.15em] uppercase leading-[1.9]"
+                  className="text-ivory text-xs tracking-[0.15em] uppercase leading-[1.9]"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
                   Mítla 145, Col. Narvarte<br />Del. Benito Júarez, CDMX
@@ -138,7 +141,7 @@ export default function Footer() {
       {/* ── Bottom bar ───────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-end gap-4">
         <p
-          className="text-sm tracking-[0.2em] uppercase text-ivory/20"
+          className="text-sm tracking-[0.2em] uppercase text-ivory"
           style={{ fontFamily: "var(--font-highway)" }}
         >
           © {new Date().getFullYear()} Estudio Novena

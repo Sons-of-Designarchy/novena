@@ -60,7 +60,7 @@ export default function Equipment() {
 
         <div className="mb-14 md:mb-20" data-animate>
           <p
-            className="text-sm tracking-[0.3em] uppercase text-dusk/30 mb-4
+            className="text-sm tracking-[0.3em] uppercase text-ash mb-4
                        opacity-0 animate-fade-up"
             style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
           >
@@ -88,7 +88,7 @@ export default function Equipment() {
                 {section.items.map((item) => (
                   <li
                     key={item}
-                    className="text-dusk/70 text-sm flex items-start gap-2"
+                    className="text-ash text-sm flex items-start gap-2"
                     style={{ fontFamily: "var(--font-serif)" }}
                   >
                     <span className="text-sand mt-[3px] shrink-0 text-xs">—</span>
