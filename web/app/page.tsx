@@ -265,7 +265,7 @@ export default function Home() {
         <ParallaxTexture
           src="/textures/halftone-trippy-01.jpg"
           speed={0.15}
-          opacity={0.1}
+          opacity={0.06}
           overshoot="-100%"
           backgroundSize="1400px"
           backgroundRepeat="repeat"
