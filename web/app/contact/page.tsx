@@ -66,12 +66,14 @@ export default function Contact() {
               {(["firstName", "lastName"] as const).map((name) => (
                 <div key={name} className="flex flex-col gap-1.5">
                   <label
+                    htmlFor={name}
                     className="text-sm tracking-[0.2em] uppercase text-cobalt"
                     style={{ fontFamily: "var(--font-highway)" }}
                   >
                     {name === "firstName" ? "Nombre" : "Apellido"} *
                   </label>
                   <input
+                    id={name}
                     name={name}
                     required
                     value={form[name]}
@@ -86,12 +88,14 @@ export default function Contact() {
 
             <div className="flex flex-col gap-1.5">
               <label
+                htmlFor="email"
                 className="text-sm tracking-[0.2em] uppercase text-cobalt"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
                 Email *
               </label>
               <input
+                id="email"
                 name="email"
                 type="email"
                 required
@@ -105,12 +109,14 @@ export default function Contact() {
 
             <div className="flex flex-col gap-1.5">
               <label
+                htmlFor="message"
                 className="text-sm tracking-[0.2em] uppercase text-cobalt"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
                 Mensaje *
               </label>
               <textarea
+                id="message"
                 name="message"
                 required
                 rows={2}
