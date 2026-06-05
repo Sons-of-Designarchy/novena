@@ -22,7 +22,7 @@ function getHeroImages(): string[] {
 const marqueeItems = [
   { type: "text",  value: "Estudio Novena" },
   { type: "icon",  value: "araucana"       },
-  { type: "text",  value: "Mexico City"    },
+  { type: "text",  value: "Ciudad de México" },
   { type: "icon",  value: "sun"            },
   { type: "icon",  value: "cactus"         },
   { type: "text",  value: "Grabación"       },
@@ -187,7 +187,7 @@ export default function Home() {
               style={{ fontFamily: "var(--font-highway)" }}
             >
               <p>
-                Un estudio de grabación independiente en Col. Narvarte, Ciudad de México —
+                Un estudio de grabación independiente en Col. Narvarte Oriente, Ciudad de México —
                 construido para músicos que quieren trabajar con total libertad creativa.
                 Sin presión de reloj, sin ambiente corporativo.
               </p>
@@ -275,7 +275,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-sand/50">
             {[
-              { label: "Ubicación",  value: "Mexico City"   },
+              { label: "Ubicación",  value: "Ciudad de México" },
               { label: "Fundado",    value: "Independiente" },
               { label: "Disciplina", value: "Grabación"     },
             ].map(({ label, value }, i) => (

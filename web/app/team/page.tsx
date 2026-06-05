@@ -38,7 +38,7 @@ export default function Team() {
                      opacity-0 animate-fade-up"
           style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
         >
-          Con quíen trabajamos
+          Con quién trabajamos
         </p>
         <h1
           className="uppercase leading-none text-cobalt text-[clamp(2.5rem,6vw,5.5rem)]

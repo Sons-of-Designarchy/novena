@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 const MAPS_URL =
-  "https://www.google.com/maps?q=M%C3%ADtla+145%2C+Col+Narvarte%2C+Del.+Benito+J%C3%BAarez%2C+CDMX";
+  "https://www.google.com/maps?q=Mitla+145%2C+Col.+Narvarte+Oriente%2C+Benito+Ju%C3%A1rez%2C+CDMX";
 
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
@@ -159,7 +159,7 @@ export default function Contact() {
               className="text-dusk text-sm hover:text-flame transition-colors"
               style={{ fontFamily: "var(--font-highway-exp)" }}
             >
-              Mítla 145, Col. Narvarte<br />Del. Benito Júarez, CDMX
+              Mitla 145, Col. Narvarte Oriente<br />Benito Juárez, CDMX
             </a>
           </div>
           <div>

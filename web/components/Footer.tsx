@@ -101,7 +101,7 @@ export default function Footer() {
                   className="text-ivory text-xs tracking-[0.15em] uppercase leading-[1.9]"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
-                  Mítla 145, Col. Narvarte<br />Del. Benito Júarez, CDMX
+                  Mitla 145, Col. Narvarte Oriente<br />Benito Juárez, CDMX
                 </p>
               </div>
             </div>
