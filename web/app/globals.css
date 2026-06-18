@@ -30,6 +30,7 @@
   --color-flame:  #E35A1A;
   --color-rust:   #C04010;
   --color-cobalt: #1A3FA3;
+  --color-display: #1A3FA3; /* títulos display; por defecto = cobalt, override por tema */
   --color-sand:   #C8B89A;
   --color-mist:   #C8D4EE;
   --color-ash:    #5B5954; /* gris sólido para texto secundario — nunca tintes/alfa */
@@ -54,13 +55,6 @@
 /* ── Footer: tono oscuro del tema por defecto ── */
 :root {
   --color-footer: var(--color-forest);
-  /* Color de los títulos display. Por defecto sigue al acento del tema. */
-  --color-display: var(--color-cobalt);
-}
-
-/* Títulos display grandes — usan el acento "display" del tema activo */
-.text-display {
-  color: var(--color-display);
 }
 
 /* ── Theme: naranja (cream · orange accent) ──
