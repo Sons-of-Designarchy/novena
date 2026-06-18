@@ -20,15 +20,20 @@ export default function Contact() {
     setSending(true);
     setError(null);
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          subject: `Nuevo mensaje de contacto — ${form.firstName} ${form.lastName}`.trim(),
+          from_name: "Estudio Novena — Web",
+          name: `${form.firstName} ${form.lastName}`.trim(),
+          email: form.email,
+          message: form.message,
+        }),
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => null);
-        throw new Error(data?.error ?? "No se pudo enviar el mensaje.");
-      }
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message ?? "No se pudo enviar el mensaje.");
       setSent(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "No se pudo enviar el mensaje.");
