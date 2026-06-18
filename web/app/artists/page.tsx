@@ -49,7 +49,7 @@ export default function Artists() {
             </p>
 
             <ul className="border-t border-sand/60">
-              {["Benjamin Walker", "Los Bunkers", "Charli XCX", "Libre", "Noviembre"].map((name) => (
+              {["Charli XCX", "Mon Laferte", "Los Bunkers", "Benjamin Walker", "Cancamusa", "Susana Cala"].map((name) => (
                 <li
                   key={name}
                   className="text-cobalt uppercase border-b border-sand/40 py-4"

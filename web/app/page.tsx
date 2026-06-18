@@ -66,43 +66,49 @@ export default function Home() {
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
 
           <p
-            className="text-cobalt text-xs tracking-[0.35em] uppercase mb-6
+            className="text-cobalt tracking-[0.35em] uppercase mb-3
                        opacity-0 animate-fade-up"
-            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
+            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards", fontSize: "14px" }}
           >
-            Estudio de grabación · Ciudad de México
+            Estudio de grabación
           </p>
 
+          <Image
+            src="/logos/logo-naranja.png"
+            alt="Novena"
+            width={557}
+            height={214}
+            priority
+            className="w-auto opacity-0 animate-fade-up delay-100"
+            style={{
+              height: "clamp(42px, 5.6vw, 90px)",
+              animationFillMode: "forwards",
+            }}
+          />
+
           <h1
-            className="text-cobalt uppercase opacity-0 animate-fade-up delay-100"
+            className="text-display uppercase opacity-0 animate-fade-up delay-100 mt-2"
             style={{
               fontFamily: "var(--font-highway-exp)",
               animationFillMode: "forwards",
-              fontSize: "clamp(42px, 5.6vw, 90px)",
+              fontSize: "clamp(30px, 3.4vw, 46px)",
               lineHeight: 0.9,
               letterSpacing: "-0.02em",
               maxWidth: "14ch",
             }}
           >
-            El espacio donde abrazamos tu música
+            <span style={{ display: "block", letterSpacing: "-0.05em" }}>abrazamos</span>
+            tu música
           </h1>
-
-          <p
-            className="mt-5 text-ash italic text-lg
-                       opacity-0 animate-fade-up delay-200"
-            style={{ fontFamily: "var(--font-serif)", animationFillMode: "forwards" }}
-          >
-            De LATAM para el mundo
-          </p>
 
           <Link
             href="/contact"
-            className="group mt-6 inline-flex items-center gap-2 rounded-full
+            className="group mt-4 inline-flex items-center gap-2 rounded-full
                        border border-cobalt text-cobalt
-                       px-6 py-2.5 text-sm tracking-[0.2em] uppercase
+                       px-6 py-2.5 tracking-[0.2em] uppercase
                        hover:bg-cobalt hover:text-ivory transition-colors
                        opacity-0 animate-fade-up delay-300"
-            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
+            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards", fontSize: "16px" }}
           >
             Reserva una sesión
             <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
@@ -167,19 +173,12 @@ export default function Home() {
               />
             </div>
 
-            <p
-              className="text-sm font-bold tracking-[0.35em] uppercase text-ash mb-5"
-              style={{ fontFamily: "var(--font-highway)" }}
-            >
-              01 — El Estudio
-            </p>
-
             <h2
-              className="uppercase leading-[0.9] tracking-tight text-cobalt mb-8
+              className="uppercase leading-[0.9] tracking-tight text-display mb-8
                          text-[clamp(2.8rem,5vw,4.5rem)]"
               style={{ fontFamily: "var(--font-highway-exp)" }}
             >
-              El estudio<br />detrás<br />del sonido
+              Estudio<br />Novena
             </h2>
 
             <div
@@ -187,18 +186,11 @@ export default function Home() {
               style={{ fontFamily: "var(--font-highway)" }}
             >
               <p>
-                Un estudio de grabación independiente en Col. Narvarte Oriente, Ciudad de México —
-                construido para músicos que quieren trabajar con total libertad creativa.
-                Sin presión de reloj, sin ambiente corporativo.
-              </p>
-              <p>
-                El nombre hace referencia a los nueve días de preparación que preceden algo
-                significativo. Cada sesión es un compromiso enfocado e intencional con el trabajo.
-              </p>
-              <p>
-                Hemos trabajado con artistas de México, Chile y más allá — desde actos emergentes
-                hasta nombres reconocidos internacionalmente, grabando desde folk íntimo hasta
-                rock psicodélico expansivo.
+                Es un estudio ganador del Grammy y Latin Grammy ubicado en la colonia Narvarte
+                de la Ciudad de México. Se ha convertido en un hogar para músicos latinoamericanos
+                e internacionales — recibiendo desde artistas emergentes hasta figuras globales —
+                todos atraídos por un ambiente acogedor y colaborativo donde la visión artística
+                siempre encuentra su lugar.
               </p>
             </div>
 
@@ -219,8 +211,8 @@ export default function Home() {
           {/* RIGHT — single photo, bleeds to edge, no padding */}
           <div className="relative overflow-hidden hidden md:block min-h-[600px] h-full">
             <Image
-              src="/gallery/NOVENA-7905.jpg"
-              alt="Session at Estudio Novena"
+              src="/gallery/novena-equipo.jpg"
+              alt="Equipo de Estudio Novena"
               fill
               className="object-cover object-center"
             />
@@ -274,28 +266,18 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-sand/50">
-            {[
-              { label: "Ubicación",  value: "Ciudad de México" },
-              { label: "Fundado",    value: "Independiente" },
-              { label: "Disciplina", value: "Grabación"     },
-            ].map(({ label, value }, i) => (
+            {["Creación", "Comunidad", "Calidad"].map((word, i) => (
               <div
-                key={label}
-                className="py-6 sm:py-8 px-0 sm:px-4 md:px-8 sm:first:pl-0 sm:last:pr-0"
+                key={word}
+                className="py-8 sm:py-10 px-0 sm:px-4 md:px-8 text-center"
                 data-animate
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <p
-                  className="text-sm tracking-[0.3em] uppercase text-ash mb-2"
-                  style={{ fontFamily: "var(--font-highway)" }}
-                >
-                  {label}
-                </p>
-                <p
-                  className="text-cobalt text-base md:text-lg uppercase leading-tight"
+                  className="text-cobalt text-2xl md:text-3xl uppercase leading-tight"
                   style={{ fontFamily: "var(--font-highway-exp)" }}
                 >
-                  {value}
+                  {word}
                 </p>
               </div>
             ))}

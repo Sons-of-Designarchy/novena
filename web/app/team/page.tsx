@@ -1,16 +1,16 @@
 import { readdirSync } from "fs";
 import path from "path";
 
-export const metadata = { title: "The Amigos — Estudio Novena" };
+export const metadata = { title: "Team — Estudio Novena" };
 
 const TEAM_DATA: Record<string, { name: string; role: string; order: number }> = {
-  ben:    { name: "Ben Bultrini",    role: "Studio Manager",             order: 1 },
-  felipe: { name: "Felipe Castro",   role: "Prod / Mix / Rec",           order: 2 },
-  alex:   { name: "Alejandro Yelin", role: "Prod / Eng / Comp",          order: 3 },
-  tom:    { name: "Tom Kearney",     role: "Prod / Eng",                 order: 4 },
-  flavio: { name: "Fabio Lendrum",   role: "Prod / Comp / Vibe-curator", order: 5 },
-  dan:    { name: "Dan Pliego",      role: "Tech / Drums",               order: 6 },
-  rayito: { name: "Rayito",          role: "El Emperador",               order: 7 },
+  ben:    { name: "Ben Bultrini",    role: "Studio Manager / Prod / Mix / Rec", order: 1 },
+  felipe: { name: "Felipe Castro",   role: "Prod / Mix / Rec",                  order: 2 },
+  ale:    { name: "Alejandro Yelin", role: "Prod / Mix / Rec",                  order: 3 },
+  tom:    { name: "Tom Kearney",     role: "Prod / Mix / Rec",                  order: 4 },
+  fabio:  { name: "Fabio Lendrum",   role: "Resident Artist / Prod",            order: 5 },
+  dan:    { name: "Dan Pliego",      role: "Tech / Drums",                      order: 6 },
+  rayito: { name: "Yito",            role: "Chief Barking Officer",             order: 7 },
 };
 
 function getTeamMembers(): { src: string; name: string; role: string }[] {
@@ -19,7 +19,7 @@ function getTeamMembers(): { src: string; name: string; role: string }[] {
     .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
     .map(f => {
       const base = f.replace(/\.[^.]+$/, "");
-      const key  = base.split("-")[0].toLowerCase();
+      const key  = (base.match(/^[a-zA-Z]+/)?.[0] ?? base).toLowerCase();
       const data = TEAM_DATA[key] ?? { name: key, role: "", order: 99 };
       return { src: `/team/${encodeURIComponent(f)}`, ...data };
     })
@@ -45,7 +45,7 @@ export default function Team() {
                      opacity-0 animate-fade-up delay-100"
           style={{ fontFamily: "var(--font-highway-exp)", letterSpacing: "-0.02em", animationFillMode: "forwards" }}
         >
-          The Amigos
+          Team
         </h1>
       </section>
 

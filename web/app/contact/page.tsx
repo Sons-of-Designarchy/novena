@@ -9,9 +9,33 @@ const MAPS_URL =
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const update = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm(p => ({ ...p, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error ?? "No se pudo enviar el mensaje.");
+      }
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "No se pudo enviar el mensaje.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <div className="grid md:grid-cols-2">
@@ -61,7 +85,7 @@ export default function Contact() {
             </p>
           </div>
         ) : (
-          <form onSubmit={e => { e.preventDefault(); setSent(true); }} className="flex flex-col gap-4 mb-12">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {(["firstName", "lastName"] as const).map((name) => (
                 <div key={name} className="flex flex-col gap-1.5">
@@ -132,13 +156,25 @@ export default function Contact() {
               />
             </div>
 
+            {error && (
+              <p
+                className="text-flame text-sm"
+                style={{ fontFamily: "var(--font-serif)" }}
+                role="alert"
+              >
+                {error}
+              </p>
+            )}
+
             <button
               type="submit"
+              disabled={sending}
               className="self-start rounded-full border border-cobalt text-cobalt px-10 py-4 text-sm tracking-[0.2em] uppercase
-                         hover:bg-cobalt hover:text-ivory transition-colors"
+                         hover:bg-cobalt hover:text-ivory transition-colors
+                         disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-cobalt"
               style={{ fontFamily: "var(--font-highway)" }}
             >
-              Enviar
+              {sending ? "Enviando…" : "Enviar"}
             </button>
           </form>
         )}
@@ -159,7 +195,7 @@ export default function Contact() {
               className="text-dusk text-sm hover:text-flame transition-colors"
               style={{ fontFamily: "var(--font-highway-exp)" }}
             >
-              Mitla 145, Col. Narvarte Oriente<br />Benito Juárez, CDMX
+              Col. Narvarte Oriente<br />Benito Juárez, CDMX
             </a>
           </div>
           <div>

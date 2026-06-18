@@ -14,11 +14,24 @@ const IMAGES = [
   { src: "/gallery/NOVENA-6719.jpg", w: 1500, h: 1000 },
   { src: "/gallery/NOVENA-7706.jpg", w: 1000, h: 1500 },
   { src: "/gallery/NOVENA-6772.jpg", w: 1500, h: 1000 },
-  { src: "/gallery/NOVENA-7767.jpg", w: 1000, h: 1500 },
+  // ── Fotos de equipo (carpeta /gear) ──
+  { src: "/gear/NOVENA-6251%202%201.jpg", w: 1366, h: 2049 },
+  { src: "/gear/NOVENA-6474%202%201.jpg", w: 2048, h: 1366 },
+  { src: "/gear/NOVENA-6903%202%201.jpg", w: 1366, h: 2049 },
+  { src: "/gear/NOVENA-7818%202%201.jpg", w: 2048, h: 1366 },
+  { src: "/gear/NOVENA-7706%202%201.jpg", w: 1366, h: 2049 },
+  { src: "/gear/NOVENA-7867%202%201.jpg", w: 2048, h: 1365 },
+  { src: "/gear/NOVENA-7709%202%201.jpg", w: 1366, h: 2049 },
+  { src: "/gear/NOVENA-8049%202%201.jpg", w: 2048, h: 1365 },
+  { src: "/gear/NOVENA-8061%202%201.jpg", w: 1366, h: 2049 },
+  { src: "/gear/NOVENA-8171%202%201.jpg", w: 2048, h: 1366 },
+  { src: "/gear/NOVENA-8069%202%201.jpg", w: 1365, h: 2048 },
+  { src: "/gear/NOVENA-8173%202%201.jpg", w: 2048, h: 1365 },
 ];
 
-const col1imgs = [...IMAGES.slice(0, 6), ...IMAGES.slice(0, 6), ...IMAGES.slice(0, 6)];
-const col2imgs = [...IMAGES.slice(6), ...IMAGES.slice(6), ...IMAGES.slice(6)];
+const half = Math.ceil(IMAGES.length / 2);
+const col1imgs = [...IMAGES.slice(0, half), ...IMAGES.slice(0, half), ...IMAGES.slice(0, half)];
+const col2imgs = [...IMAGES.slice(half), ...IMAGES.slice(half), ...IMAGES.slice(half)];
 
 export default function GalleryColumns() {
   const wrapRef = useRef<HTMLDivElement>(null);

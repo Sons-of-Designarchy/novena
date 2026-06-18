@@ -54,6 +54,13 @@
 /* ── Footer: tono oscuro del tema por defecto ── */
 :root {
   --color-footer: var(--color-forest);
+  /* Color de los títulos display. Por defecto sigue al acento del tema. */
+  --color-display: var(--color-cobalt);
+}
+
+/* Títulos display grandes — usan el acento "display" del tema activo */
+.text-display {
+  color: var(--color-display);
 }
 
 /* ── Theme: naranja (cream · orange accent) ──
@@ -66,6 +73,7 @@
   --color-cobalt: #B83A08;
   --color-mist:   #FFE4D0;
   --color-footer: #B83A08; /* más naranja que forest */
+  --color-display: #E15025; /* naranja exacto del logo (logo-naranja.png) */
 }
 
 /* ── Theme: verde (cream · emerald accent) ── */

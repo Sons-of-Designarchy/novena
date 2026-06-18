@@ -41,14 +41,14 @@ export default function Footer() {
                 className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
-                01 — Reservar
+                Reservar
               </p>
               <h2
                 className="text-ivory uppercase leading-[0.88] tracking-tight mb-10
                            text-[clamp(2.8rem,4vw,3.8rem)]"
                 style={{ fontFamily: "var(--font-highway-exp)" }}
               >
-                Listos<br />cuando<br />tú lo estés.
+                Listos<br />cuando<br />tú lo estés
               </h2>
               <Link
                 href="/contact"
@@ -69,7 +69,7 @@ export default function Footer() {
                   className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
-                  02 — Síguenos
+                  Síguenos
                 </p>
                 <a
                   href="https://instagram.com/estudionovena"
@@ -95,13 +95,13 @@ export default function Footer() {
                   className="text-sm tracking-[0.35em] uppercase text-ivory mb-3"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
-                  Estudio
+                  Ubicación
                 </p>
                 <p
                   className="text-ivory text-xs tracking-[0.15em] uppercase leading-[1.9]"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
-                  Mitla 145, Col. Narvarte Oriente<br />Benito Juárez, CDMX
+                  Col. Narvarte Oriente<br />Benito Juárez, CDMX
                 </p>
               </div>
             </div>

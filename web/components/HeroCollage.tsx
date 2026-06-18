@@ -24,9 +24,15 @@ const SLOTS: Slot[] = [
   // ── Left side ──
   { top: "32%", left: "-1%",  w: 169, depth: 0.70, rotate: -1.0 },
   { top: "57%", left:  "3%",  w: 144, depth: 0.45, rotate:  0.7 },
+  // ── Left-center fill ──
+  { top: "24%", left: "17%",  w: 150, depth: 0.38, rotate:  1.1, hideBelow: 1024 },
+  { top: "46%", left: "14%",  w: 140, depth: 0.52, rotate: -1.0, hideBelow: 1024 },
+  { top: "38%", left: "29%",  w: 120, depth: 0.28, rotate:  0.7, hideBelow: 1280 },
   // ── Right side ──
   { top: "28%", left: "80%",  w: 186, depth: 0.60, rotate: -0.5 },
   { top: "56%", left: "85%",  w: 158, depth: 0.38, rotate:  1.2 },
+  { top: "42%", left: "67%",  w: 138, depth: 0.50, rotate:  1.0, hideBelow: 1024 },
+  { top: "61%", left: "70%",  w: 124, depth: 0.32, rotate: -0.9, hideBelow: 1280 },
   // ── Bottom row ──
   { top: "78%", left:  "2%",  w: 174, depth: 0.65, rotate:  1.0 },
   { top: "80%", left: "18%",  w: 135, depth: 0.48, rotate: -0.8, hideBelow: 640 },
@@ -40,6 +46,7 @@ export default function HeroCollage({ images }: { images: string[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [vw, setVw] = useState(1440);
+  const [parallaxOn, setParallaxOn] = useState(false);
   const raf = useRef(0);
 
   // Track viewport width for responsive scaling
@@ -50,7 +57,26 @@ export default function HeroCollage({ images }: { images: string[] }) {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  // Mouse parallax — desktop only
+  // Enable parallax based on POINTER capability, not window width —
+  // a narrow desktop window (e.g. Arc with its sidebar open) still has a mouse.
+  // Touch-only devices and "reduce motion" users are excluded.
+  useEffect(() => {
+    if (typeof window.matchMedia !== "function") {
+      setParallaxOn(true); // very old browser: just enable it
+      return;
+    }
+    const pointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const reduce  = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setParallaxOn(pointer.matches && !reduce.matches);
+    sync();
+    pointer.addEventListener("change", sync);
+    reduce.addEventListener("change", sync);
+    return () => {
+      pointer.removeEventListener("change", sync);
+      reduce.removeEventListener("change", sync);
+    };
+  }, []);
+
   const onMove = useCallback((e: MouseEvent) => {
     cancelAnimationFrame(raf.current);
     raf.current = requestAnimationFrame(() => {
@@ -65,13 +91,16 @@ export default function HeroCollage({ images }: { images: string[] }) {
   }, []);
 
   useEffect(() => {
-    if (vw < 1024) return; // no parallax on touch devices
+    if (!parallaxOn) {
+      setOffset({ x: 0, y: 0 }); // reset to base position when disabled
+      return;
+    }
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf.current);
     };
-  }, [onMove, vw]);
+  }, [onMove, parallaxOn]);
 
   if (!images.length) return null;
 
