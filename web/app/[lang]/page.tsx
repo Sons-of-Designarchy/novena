@@ -233,13 +233,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             className="object-cover object-center"
           />
         </div>
-        {/* Landscape split texture — screen blend adds a color-field effect */}
-        <ParallaxTexture
-          src="/textures/grain-01.png"
-          speed={0.55}
-          opacity={0.22}
-          blendMode="screen"
-        />
       </section>
 
       {/* ─────────────────────────────────────────────────

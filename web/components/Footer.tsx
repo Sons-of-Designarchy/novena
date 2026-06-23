@@ -147,7 +147,8 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-between gap-4 text-ivory">
         <LangToggle />
         <p
-          className="text-sm tracking-[0.2em] uppercase text-ivory"
+          className="text-[10px] tracking-[0.1em] sm:text-xs sm:tracking-[0.15em]
+                     md:text-sm md:tracking-[0.2em] uppercase text-ivory whitespace-nowrap"
           style={{ fontFamily: "var(--font-highway)" }}
         >
           © {new Date().getFullYear()} Estudio Novena
