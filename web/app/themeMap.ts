@@ -1,3 +1,5 @@
+import { stripLocale } from "@/lib/locale";
+
 export type Theme = "azul" | "naranja" | "verde";
 
 /**
@@ -26,5 +28,10 @@ export const FOOTER_BG_BY_PATH: Record<string, string> = {
 };
 
 export function themeForPath(path: string): Theme {
-  return THEME_BY_PATH[path] ?? DEFAULT_THEME;
+  return THEME_BY_PATH[stripLocale(path)] ?? DEFAULT_THEME;
+}
+
+export function footerBgForPath(path: string, theme: Theme, themeColors: Record<string, string>): string {
+  const base = stripLocale(path);
+  return FOOTER_BG_BY_PATH[base] ?? themeColors[theme] ?? "#0F2870";
 }

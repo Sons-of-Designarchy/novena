@@ -1,8 +1,12 @@
 import ParallaxTexture from "@/components/ParallaxTexture";
+import { notFound } from "next/navigation";
+import { isLocale } from "@/lib/locale";
+import { getDictionary } from "@/lib/dictionary";
 
-export const metadata = { title: "Artistas — Estudio Novena" };
-
-export default function Artists() {
+export default async function Artists({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
   return (
     <div className="relative overflow-hidden">
 
@@ -24,14 +28,14 @@ export default function Artists() {
                        opacity-0 animate-fade-up"
             style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
           >
-            Con quiénes hemos trabajado
+            {dict.artists.eyebrow}
           </p>
           <h1
             className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
                        opacity-0 animate-fade-up delay-100"
             style={{ fontFamily: "var(--font-highway-exp)", animationFillMode: "forwards" }}
           >
-            Artistas
+            {dict.artists.title}
           </h1>
         </div>
 
@@ -43,9 +47,7 @@ export default function Artists() {
               className="text-ash text-base leading-relaxed mb-10 max-w-md"
               style={{ fontFamily: "var(--font-serif)" }}
             >
-              Una selección de los artistas y proyectos que han grabado, mezclado o
-              producido en Estudio Novena. Aquí abajo, una playlist de lo que ha
-              salido de nuestras sesiones.
+              {dict.artists.body}
             </p>
 
             <ul className="border-t border-sand/60">
@@ -82,7 +84,7 @@ export default function Artists() {
                 className="text-sm tracking-[0.25em] uppercase text-ivory"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
-                Estudio Novena Friends — Lista de reproducción
+                {dict.artists.playlistLabel}
               </span>
             </div>
           </div>

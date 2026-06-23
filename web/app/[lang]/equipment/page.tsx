@@ -1,8 +1,9 @@
 import { readdirSync } from "fs";
 import path from "path";
 import GearSlider from "@/components/GearSlider";
-
-export const metadata = { title: "Gear — Estudio Novena" };
+import { notFound } from "next/navigation";
+import { isLocale } from "@/lib/locale";
+import { getDictionary } from "@/lib/dictionary";
 
 function getGearImages(): string[] {
   const dir = path.join(process.cwd(), "public/gear");
@@ -99,7 +100,10 @@ const gear: { category: string; items: string[] }[] = [
   },
 ];
 
-export default function Equipment() {
+export default async function Equipment({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
   const gearImages = getGearImages();
   return (
     <div>
@@ -111,14 +115,14 @@ export default function Equipment() {
                        opacity-0 animate-fade-up"
             style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
           >
-            Con qué trabajamos
+            {dict.gear.eyebrow}
           </p>
           <h1
             className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
                        opacity-0 animate-fade-up delay-100"
             style={{ fontFamily: "var(--font-highway-exp)", animationFillMode: "forwards" }}
           >
-            Gear
+            {dict.gear.title}
           </h1>
         </div>
 
@@ -130,7 +134,7 @@ export default function Equipment() {
                            flex items-end min-h-[3.9rem] mb-4 pb-3 border-b border-sand/70"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
-                {section.category}
+                {dict.gear.categories[section.category] ?? section.category}
               </h2>
               <ul className="space-y-[6px]">
                 {section.items.map((item) => (

@@ -1,7 +1,8 @@
 import { readdirSync } from "fs";
 import path from "path";
-
-export const metadata = { title: "Team — Estudio Novena" };
+import { notFound } from "next/navigation";
+import { isLocale } from "@/lib/locale";
+import { getDictionary } from "@/lib/dictionary";
 
 const TEAM_DATA: Record<string, { name: string; role: string; order: number }> = {
   ben:    { name: "Ben Bultrini",    role: "Studio Manager / Prod / Mix / Rec", order: 1 },
@@ -27,7 +28,10 @@ function getTeamMembers(): { src: string; name: string; role: string }[] {
     .map(({ src, name, role }) => ({ src, name, role }));
 }
 
-export default function Team() {
+export default async function Team({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
   const teamMembers = getTeamMembers();
 
   return (
@@ -38,14 +42,14 @@ export default function Team() {
                      opacity-0 animate-fade-up"
           style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
         >
-          Con quién trabajamos
+          {dict.team.eyebrow}
         </p>
         <h1
           className="uppercase leading-none text-cobalt text-[clamp(2.5rem,6vw,5.5rem)]
                      opacity-0 animate-fade-up delay-100"
           style={{ fontFamily: "var(--font-highway-exp)", letterSpacing: "-0.02em", animationFillMode: "forwards" }}
         >
-          Team
+          {dict.team.title}
         </h1>
       </section>
 

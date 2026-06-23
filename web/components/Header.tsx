@@ -5,17 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
-
-const leftLinks  = [
-  { href: "/",          label: "Home"    },
-  { href: "/equipment", label: "Gear"    },
-  { href: "/team",      label: "Team"    },
-];
-const rightLinks = [
-  { href: "/gallery",   label: "Galería"  },
-  { href: "/artists",   label: "Artistas" },
-  { href: "/contact",   label: "Contacto" },
-];
+import { useI18n } from "./I18nProvider";
+import LangToggle from "./LangToggle";
 
 const LOGOS: Record<string, string> = {
   azul:    "/logos/logo-azul.png",
@@ -27,19 +18,31 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { theme } = useTheme();
+  const { dict, href } = useI18n();
 
-  const linkClass = (href: string) =>
+  const leftLinks = [
+    { href: href("/"),          label: dict.nav.home },
+    { href: href("/equipment"), label: dict.nav.gear },
+    { href: href("/team"),      label: dict.nav.team },
+    { href: href("/gallery"),   label: dict.nav.gallery },
+  ];
+  const rightLinks = [
+    { href: href("/artists"),   label: dict.nav.artists },
+    { href: href("/contact"),   label: dict.nav.contact },
+  ];
+
+  const linkClass = (linkHref: string) =>
     `text-sm tracking-[0.18em] uppercase transition-colors whitespace-nowrap
-     ${pathname === href ? "text-cobalt" : "text-ash hover:text-cobalt"}`;
+     ${pathname === linkHref ? "text-cobalt" : "text-ash hover:text-cobalt"}`;
 
   return (
     <>
       {/* ── Floating pill nav ───────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 pointer-events-none">
         <nav
-          className="pointer-events-auto flex items-center w-full max-w-3xl
+          className="pointer-events-auto flex items-center w-full max-w-4xl
                      rounded-[8px] border border-sand/50
-                     px-6 h-12
+                     px-6 h-12 gap-2
                      shadow-[0_2px_24px_rgba(26,26,24,0.06)]"
           style={{
             background: "color-mix(in srgb, var(--color-ivory) 72%, transparent)",
@@ -60,7 +63,7 @@ export default function Header() {
 
           {/* Center logo */}
           <div className="flex-1 md:flex-none flex justify-start md:justify-center md:mx-8">
-            <Link href="/">
+            <Link href={href("/")}>
               <Image
                 src={LOGOS[theme] ?? LOGOS.azul}
                 alt="Estudio Novena"
@@ -81,6 +84,7 @@ export default function Header() {
                 {l.label}
               </Link>
             ))}
+            <span className="text-ash"><LangToggle /></span>
           </div>
 
           {/* Mobile: hamburger */}
@@ -122,6 +126,7 @@ export default function Header() {
                 {l.label}
               </Link>
             ))}
+            <span className="text-ash pt-2 border-t border-sand/40"><LangToggle /></span>
           </div>
         </div>
       )}

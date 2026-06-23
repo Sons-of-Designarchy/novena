@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ParallaxTexture from "./ParallaxTexture";
-import { FOOTER_BG_BY_PATH, THEME_BY_PATH, DEFAULT_THEME } from "@/app/themeMap";
+import { themeForPath, footerBgForPath } from "@/app/themeMap";
+import { useI18n } from "./I18nProvider";
+import LangToggle from "./LangToggle";
 
 const THEME_FOOTER_COLORS: Record<string, string> = {
   azul:    "#0F2870",
@@ -13,8 +15,9 @@ const THEME_FOOTER_COLORS: Record<string, string> = {
 
 export default function Footer() {
   const pathname = usePathname();
-  const theme = THEME_BY_PATH[pathname] ?? DEFAULT_THEME;
-  const bg = FOOTER_BG_BY_PATH[pathname] ?? THEME_FOOTER_COLORS[theme] ?? "#0F2870";
+  const { dict, href } = useI18n();
+  const theme = themeForPath(pathname);
+  const bg = footerBgForPath(pathname, theme, THEME_FOOTER_COLORS);
 
   return (
     <footer
@@ -41,23 +44,25 @@ export default function Footer() {
                 className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
-                Reservar
+                {dict.footer.bookLabel}
               </p>
               <h2
                 className="text-ivory uppercase leading-[0.88] tracking-tight mb-10
                            text-[clamp(2.8rem,4vw,3.8rem)]"
                 style={{ fontFamily: "var(--font-highway-exp)" }}
               >
-                Listos<br />cuando<br />tú lo estés
+                {dict.footer.headingLines.map((line, i) => (
+                  <span key={i}>{i > 0 && <br />}{line}</span>
+                ))}
               </h2>
               <Link
-                href="/contact"
+                href={href("/contact")}
                 className="group inline-flex items-center gap-2 rounded-full border border-ivory text-ivory
                            px-7 py-3 text-sm tracking-[0.2em] uppercase
                            hover:bg-ivory hover:text-cobalt transition-colors"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
-                Reserva una sesión
+                {dict.cta.bookSession}
                 <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
               </Link>
             </div>
@@ -69,7 +74,7 @@ export default function Footer() {
                   className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
-                  Síguenos
+                  {dict.footer.followLabel}
                 </p>
                 <a
                   href="https://instagram.com/estudionovena"
@@ -95,7 +100,7 @@ export default function Footer() {
                   className="text-sm tracking-[0.35em] uppercase text-ivory mb-3"
                   style={{ fontFamily: "var(--font-highway)" }}
                 >
-                  Ubicación
+                  {dict.footer.locationLabel}
                 </p>
                 <p
                   className="text-ivory text-xs tracking-[0.15em] uppercase leading-[1.9]"
@@ -139,7 +144,8 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom bar ───────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-end gap-4">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-5 flex items-center justify-between gap-4 text-ivory">
+        <LangToggle />
         <p
           className="text-sm tracking-[0.2em] uppercase text-ivory"
           style={{ fontFamily: "var(--font-highway)" }}

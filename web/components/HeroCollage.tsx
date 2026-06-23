@@ -15,10 +15,10 @@ const SLOTS: Slot[] = [
   // ── Top-left cluster ──
   { top:  "3%", left:  "1%",  w: 183, depth: 0.35, rotate: -1.2 },
   { top:  "1%", left: "13%",  w: 148, depth: 0.55, rotate:  0.8, hideBelow: 640 },
-  // ── Top-center-left ──
-  { top:  "2%", left: "25%",  w: 172, depth: 0.25, rotate: -0.4, hideBelow: 1024 },
+  // ── Top-center-left ── (kept on mobile to fill the top-center gap)
+  { top:  "2%", left: "25%",  w: 172, depth: 0.25, rotate: -0.4 },
   // ── Top-right cluster ──
-  { top:  "3%", left: "62%",  w: 137, depth: 0.50, rotate:  1.0, hideBelow: 1024 },
+  { top:  "3%", left: "62%",  w: 137, depth: 0.50, rotate:  1.0 },
   { top:  "0%", left: "73%",  w: 188, depth: 0.65, rotate: -0.8 },
   { top:  "4%", left: "87%",  w: 144, depth: 0.40, rotate:  0.5 },
   // ── Left side ──
@@ -36,8 +36,8 @@ const SLOTS: Slot[] = [
   // ── Bottom row ──
   { top: "78%", left:  "2%",  w: 174, depth: 0.65, rotate:  1.0 },
   { top: "80%", left: "18%",  w: 135, depth: 0.48, rotate: -0.8, hideBelow: 640 },
-  { top: "76%", left: "33%",  w: 158, depth: 0.28, rotate:  0.5, hideBelow: 1024 },
-  { top: "74%", left: "54%",  w: 169, depth: 0.58, rotate: -1.0, hideBelow: 1024 },
+  { top: "76%", left: "33%",  w: 158, depth: 0.28, rotate:  0.5 },
+  { top: "74%", left: "54%",  w: 169, depth: 0.58, rotate: -1.0 },
   { top: "77%", left: "70%",  w: 151, depth: 0.48, rotate:  0.8, hideBelow: 1024 },
   { top: "75%", left: "86%",  w: 174, depth: 0.68, rotate: -0.5 },
 ];
@@ -48,6 +48,18 @@ export default function HeroCollage({ images }: { images: string[] }) {
   const [vw, setVw] = useState(1440);
   const [parallaxOn, setParallaxOn] = useState(false);
   const raf = useRef(0);
+
+  // Reshuffle the image order on every page load. Starts from the stable
+  // server order (no hydration mismatch), then randomizes after mount.
+  const [shuffled, setShuffled] = useState(images);
+  useEffect(() => {
+    const next = [...images];
+    for (let i = next.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [next[i], next[j]] = [next[j], next[i]];
+    }
+    setShuffled(next);
+  }, [images]);
 
   // Track viewport width for responsive scaling
   useEffect(() => {
@@ -130,7 +142,7 @@ export default function HeroCollage({ images }: { images: string[] }) {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={images[i % images.length]}
+              src={shuffled[i % shuffled.length]}
               alt=""
               width={w}
               style={{ width: "100%", height: "auto", display: "block" }}

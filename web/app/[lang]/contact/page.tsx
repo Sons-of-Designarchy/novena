@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useI18n } from "@/components/I18nProvider";
 
 const MAPS_URL =
   "https://www.google.com/maps?q=Mitla+145%2C+Col.+Narvarte+Oriente%2C+Benito+Ju%C3%A1rez%2C+CDMX";
 
 export default function Contact() {
+  const { dict } = useI18n();
+  const t = dict.contact;
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
@@ -27,11 +30,11 @@ export default function Contact() {
       });
       if (!res.ok) {
         const data = await res.json().catch(() => null);
-        throw new Error(data?.error ?? "No se pudo enviar el mensaje.");
+        throw new Error(data?.error ?? t.form.errorFallback);
       }
       setSent(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "No se pudo enviar el mensaje.");
+      setError(err instanceof Error ? err.message : t.form.errorFallback);
     } finally {
       setSending(false);
     }
@@ -60,7 +63,7 @@ export default function Contact() {
           style={{ fontFamily: "var(--font-highway)" }}
           data-animate
         >
-          Contáctanos
+          {t.eyebrow}
         </p>
 
         <h1
@@ -69,7 +72,7 @@ export default function Contact() {
           style={{ fontFamily: "var(--font-highway-exp)" }}
           data-animate
         >
-          El espacio está listo para tu proyecto.
+          {t.heading}
         </h1>
 
         {sent ? (
@@ -78,10 +81,10 @@ export default function Contact() {
               className="text-cobalt text-2xl uppercase mb-2"
               style={{ fontFamily: "var(--font-highway-exp)" }}
             >
-              Mensaje enviado.
+              {t.sent.title}
             </p>
             <p className="text-ash text-sm" style={{ fontFamily: "var(--font-serif)" }}>
-              Estaremos en contacto pronto.
+              {t.sent.body}
             </p>
           </div>
         ) : (
@@ -94,7 +97,7 @@ export default function Contact() {
                     className="text-sm tracking-[0.2em] uppercase text-cobalt"
                     style={{ fontFamily: "var(--font-highway)" }}
                   >
-                    {name === "firstName" ? "Nombre" : "Apellido"} *
+                    {name === "firstName" ? t.form.firstName : t.form.lastName} *
                   </label>
                   <input
                     id={name}
@@ -116,7 +119,7 @@ export default function Contact() {
                 className="text-sm tracking-[0.2em] uppercase text-cobalt"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
-                Email *
+                {t.form.email} *
               </label>
               <input
                 id="email"
@@ -137,7 +140,7 @@ export default function Contact() {
                 className="text-sm tracking-[0.2em] uppercase text-cobalt"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
-                Mensaje *
+                {t.form.message} *
               </label>
               <textarea
                 id="message"
@@ -174,7 +177,7 @@ export default function Contact() {
                          disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-cobalt"
               style={{ fontFamily: "var(--font-highway)" }}
             >
-              {sending ? "Enviando…" : "Enviar"}
+              {sending ? t.form.sending : t.form.send}
             </button>
           </form>
         )}
@@ -186,7 +189,7 @@ export default function Contact() {
               className="text-sm tracking-[0.3em] uppercase text-ash mb-2"
               style={{ fontFamily: "var(--font-highway)" }}
             >
-              Ubicación
+              {t.locationLabel}
             </p>
             <a
               href={MAPS_URL}
@@ -203,7 +206,7 @@ export default function Contact() {
               className="text-sm tracking-[0.3em] uppercase text-ash mb-2"
               style={{ fontFamily: "var(--font-highway)" }}
             >
-              Email
+              {t.emailLabel}
             </p>
             <a
               href="mailto:info@estudionovena.com"

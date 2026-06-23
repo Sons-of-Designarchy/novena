@@ -1,0 +1,90 @@
+meta:
+  title: Estudio Novena
+  description: Estudio de grabación musical en Ciudad de México. Reserva una sesión.
+
+nav:
+  home: Inicio
+  gear: Gear
+  team: Equipo
+  gallery: Galería
+  artists: Artistas
+  contact: Contacto
+
+cta:
+  bookSession: Reserva una sesión
+
+home:
+  hero:
+    subtitle: abrazamos tu música
+  about:
+    body: >-
+      Es un estudio ganador del Grammy y Latin Grammy ubicado en la colonia
+      Narvarte de la Ciudad de México. Se ha convertido en un hogar para
+      músicos latinoamericanos e internacionales — recibiendo desde artistas
+      emergentes hasta figuras globales — todos atraídos por un ambiente
+      acogedor y colaborativo donde la visión artística siempre encuentra su
+      lugar.
+  pillars:
+    - Creación
+    - Comunidad
+    - Calidad
+  marquee:
+    studio: Estudio Novena
+    city: Ciudad de México
+    recording: Grabación
+    independent: Independiente
+    sessions: Sesiones
+
+team:
+  eyebrow: Con quién trabajamos
+  title: Equipo
+
+gear:
+  eyebrow: Con qué trabajamos
+  title: Gear
+  categories:
+    "Micrófonos": Micrófonos
+    "Preamplificadores y Convertidores": Preamplificadores y Convertidores
+    "Monitores y Monitoreo": Monitores y Monitoreo
+    "Amplificadores": Amplificadores
+    "Guitarras": Guitarras
+    "Bajos": Bajos
+    "Batería": Batería
+    "Sintetizadores y teclados": Sintetizadores y teclados
+    "Juguetes": Juguetes
+
+artists:
+  eyebrow: Con quiénes hemos trabajado
+  title: Artistas
+  body: >-
+    Una selección de los artistas y proyectos que han grabado, mezclado o
+    producido en Estudio Novena. Aquí abajo, una playlist de lo que ha salido
+    de nuestras sesiones.
+  playlistLabel: Estudio Novena Friends — Lista de reproducción
+
+contact:
+  eyebrow: Contáctanos
+  heading: El espacio está listo para tu proyecto.
+  form:
+    firstName: Nombre
+    lastName: Apellido
+    email: Email
+    message: Mensaje
+    send: Enviar
+    sending: Enviando…
+    errorFallback: No se pudo enviar el mensaje.
+  sent:
+    title: Mensaje enviado.
+    body: Estaremos en contacto pronto.
+  locationLabel: Ubicación
+  emailLabel: Email
+
+footer:
+  bookLabel: Reservar
+  headingLines:
+    - Listos
+    - cuando
+    - tú lo estés
+  followLabel: Síguenos
+  locationLabel: Ubicación
+  langLabel: Idioma

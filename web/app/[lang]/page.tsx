@@ -6,38 +6,49 @@ import ParallaxTexture from "@/components/ParallaxTexture";
 import ParallaxImage from "@/components/ParallaxImage";
 import SvgIcon from "@/components/SvgIcon";
 import HeroCollage from "@/components/HeroCollage";
+import { notFound } from "next/navigation";
+import { withLocale, isLocale } from "@/lib/locale";
+import { getDictionary } from "@/lib/dictionary";
 
 function getHeroImages(): string[] {
   const dir = path.join(process.cwd(), "public/hero");
-  const imgs = readdirSync(dir)
+  // Stable, deterministic order for SSR — actual randomization happens
+  // client-side in HeroCollage so every page load reshuffles (a build-time
+  // shuffle here would freeze one order into the static production HTML).
+  return readdirSync(dir)
     .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
+    .sort()
     .map(f => `/hero/${encodeURIComponent(f)}`);
-  for (let i = imgs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [imgs[i], imgs[j]] = [imgs[j], imgs[i]];
-  }
-  return imgs;
 }
 
-const marqueeItems = [
-  { type: "text",  value: "Estudio Novena" },
-  { type: "icon",  value: "araucana"       },
-  { type: "text",  value: "Ciudad de México" },
-  { type: "icon",  value: "sun"            },
-  { type: "icon",  value: "cactus"         },
-  { type: "text",  value: "Grabación"       },
-  { type: "icon",  value: "pepper"         },
-  { type: "text",  value: "Independiente"  },
-  { type: "icon",  value: "flower"         },
-  { type: "icon",  value: "piramid"        },
-  { type: "text",  value: "Estudio Novena" },
-  { type: "icon",  value: "fork"           },
-  { type: "text",  value: "Sesiones"        },
-  { type: "icon",  value: "yito"           },
+const marqueeTemplate = [
+  { type: "text", key: "studio"      },
+  { type: "icon", value: "araucana"  },
+  { type: "text", key: "city"        },
+  { type: "icon", value: "sun"       },
+  { type: "icon", value: "cactus"    },
+  { type: "text", key: "recording"   },
+  { type: "icon", value: "pepper"    },
+  { type: "text", key: "independent" },
+  { type: "icon", value: "flower"    },
+  { type: "icon", value: "piramid"   },
+  { type: "text", key: "studio"      },
+  { type: "icon", value: "fork"      },
+  { type: "text", key: "sessions"    },
+  { type: "icon", value: "yito"      },
 ] as const;
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
   const heroImages = getHeroImages();
+
+  const marqueeItems = marqueeTemplate.map(item =>
+    item.type === "text"
+      ? { type: "text" as const, value: dict.home.marquee[item.key] }
+      : item,
+  );
 
   return (
     <>
@@ -65,44 +76,34 @@ export default function Home() {
         {/* Centered content — floats above collage */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
 
-          <p
-            className="text-cobalt tracking-[0.35em] uppercase mb-3
-                       opacity-0 animate-fade-up"
-            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards", fontSize: "14px" }}
-          >
-            Estudio de grabación
-          </p>
-
           <Image
-            src="/logos/logo-naranja.png"
+            src="/logos/logo-flame.png"
             alt="Novena"
-            width={557}
-            height={214}
+            width={1114}
+            height={505}
             priority
             className="w-auto opacity-0 animate-fade-up delay-100"
             style={{
-              height: "clamp(42px, 5.6vw, 90px)",
+              height: "clamp(42px, 32.6vw, 139px)",
               animationFillMode: "forwards",
             }}
           />
 
           <h1
-            className="text-display uppercase opacity-0 animate-fade-up delay-100 mt-2"
+            className="text-display uppercase opacity-0 animate-fade-up delay-100 mt-3"
             style={{
-              fontFamily: "var(--font-highway-exp)",
+              fontFamily: "var(--font-highway)",
               animationFillMode: "forwards",
-              fontSize: "clamp(30px, 3.4vw, 46px)",
-              lineHeight: 0.9,
-              letterSpacing: "-0.02em",
-              maxWidth: "14ch",
+              fontSize: "clamp(15px, 2vw, 18px)",
+              lineHeight: 1,
+              letterSpacing: "0.40em",
             }}
           >
-            <span style={{ display: "block", letterSpacing: "-0.05em" }}>abrazamos</span>
-            tu música
+            {dict.home.hero.subtitle}
           </h1>
 
           <Link
-            href="/contact"
+            href={withLocale("/contact", lang)}
             className="group mt-4 inline-flex items-center gap-2 rounded-full
                        border border-cobalt text-cobalt
                        px-6 py-2.5 tracking-[0.2em] uppercase
@@ -110,7 +111,7 @@ export default function Home() {
                        opacity-0 animate-fade-up delay-300"
             style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards", fontSize: "16px" }}
           >
-            Reserva una sesión
+            {dict.cta.bookSession}
             <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
           </Link>
         </div>
@@ -185,24 +186,18 @@ export default function Home() {
               className="space-y-5 text-ash text-base leading-[1.75] max-w-[44ch] mb-10"
               style={{ fontFamily: "var(--font-highway)" }}
             >
-              <p>
-                Es un estudio ganador del Grammy y Latin Grammy ubicado en la colonia Narvarte
-                de la Ciudad de México. Se ha convertido en un hogar para músicos latinoamericanos
-                e internacionales — recibiendo desde artistas emergentes hasta figuras globales —
-                todos atraídos por un ambiente acogedor y colaborativo donde la visión artística
-                siempre encuentra su lugar.
-              </p>
+              <p>{dict.home.about.body}</p>
             </div>
 
             <Link
-              href="/contact"
+              href={withLocale("/contact", lang)}
               className="group self-start inline-flex items-center gap-2
                          rounded-full border border-cobalt text-cobalt
                          px-7 py-3 text-sm tracking-[0.2em] uppercase
                          hover:bg-cobalt hover:text-ivory transition-colors"
               style={{ fontFamily: "var(--font-highway)" }}
             >
-              Reserva una sesión
+              {dict.cta.bookSession}
               <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
             </Link>
 
@@ -266,7 +261,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-sand/50">
-            {["Creación", "Comunidad", "Calidad"].map((word, i) => (
+            {dict.home.pillars.map((word, i) => (
               <div
                 key={word}
                 className="py-8 sm:py-10 px-0 sm:px-4 md:px-8 text-center"

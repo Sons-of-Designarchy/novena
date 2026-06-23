@@ -1,0 +1,89 @@
+meta:
+  title: Estudio Novena
+  description: Music recording studio in Mexico City. Book a session.
+
+nav:
+  home: Home
+  gear: Gear
+  team: Team
+  gallery: Gallery
+  artists: Artists
+  contact: Contact
+
+cta:
+  bookSession: Book a session
+
+home:
+  hero:
+    subtitle: we embrace your music
+  about:
+    body: >-
+      A Grammy and Latin Grammy winning studio in the Narvarte neighborhood of
+      Mexico City. It has become a home for Latin American and international
+      musicians — welcoming everyone from emerging artists to global names —
+      all drawn by a warm, collaborative atmosphere where the artistic vision
+      always finds its place.
+  pillars:
+    - Creation
+    - Community
+    - Quality
+  marquee:
+    studio: Estudio Novena
+    city: Mexico City
+    recording: Recording
+    independent: Independent
+    sessions: Sessions
+
+team:
+  eyebrow: Who we work with
+  title: Team
+
+gear:
+  eyebrow: What we work with
+  title: Gear
+  categories:
+    "Micrófonos": Microphones
+    "Preamplificadores y Convertidores": Preamps & Converters
+    "Monitores y Monitoreo": Monitors & Monitoring
+    "Amplificadores": Amplifiers
+    "Guitarras": Guitars
+    "Bajos": Basses
+    "Batería": Drums
+    "Sintetizadores y teclados": Synths & Keyboards
+    "Juguetes": Toys
+
+artists:
+  eyebrow: Who we've worked with
+  title: Artists
+  body: >-
+    A selection of the artists and projects that have recorded, mixed or
+    produced at Estudio Novena. Below, a playlist of what has come out of
+    our sessions.
+  playlistLabel: Estudio Novena Friends — Playlist
+
+contact:
+  eyebrow: Get in touch
+  heading: The space is ready for your project.
+  form:
+    firstName: First name
+    lastName: Last name
+    email: Email
+    message: Message
+    send: Send
+    sending: Sending…
+    errorFallback: Couldn't send your message.
+  sent:
+    title: Message sent.
+    body: We'll be in touch soon.
+  locationLabel: Location
+  emailLabel: Email
+
+footer:
+  bookLabel: Book
+  headingLines:
+    - Ready
+    - when
+    - you are
+  followLabel: Follow
+  locationLabel: Location
+  langLabel: Language
