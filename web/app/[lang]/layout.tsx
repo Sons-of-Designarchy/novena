@@ -37,8 +37,10 @@ export default async function RootLayout({
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
+  // The theme script below sets data-theme before hydration, so the server
+  // markup intentionally differs from the client on <html>.
   return (
-    <html lang={lang}>
+    <html lang={lang} suppressHydrationWarning>
       <head>
         {/* Apply per-route theme before first paint to avoid flash.
             Strips the /en or /es locale prefix before matching. */}
