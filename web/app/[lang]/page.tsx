@@ -257,12 +257,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             {dict.home.pillars.map((word, i) => (
               <div
                 key={word}
-                className="py-8 sm:py-10 px-0 sm:px-4 md:px-8 text-center"
+                className="py-8 sm:py-10 px-0 sm:px-3 lg:px-8 text-center"
                 data-animate
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
                 <p
-                  className="text-cobalt text-2xl md:text-3xl uppercase leading-tight"
+                  className="text-cobalt text-2xl sm:text-[clamp(1.05rem,2.8vw,2.375rem)] uppercase leading-tight"
                   style={{ fontFamily: "var(--font-highway-exp)" }}
                 >
                   {word}

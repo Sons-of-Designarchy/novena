@@ -17,9 +17,15 @@ function pick4(): string[] {
 }
 
 export default function CornerIcons() {
-  const [icons, setIcons]     = useState<string[]>(() => pick4());
+  // Server and first client render share this fixed set; the random pick only
+  // happens after mount so the two never disagree.
+  const [icons, setIcons]     = useState<string[]>(() => ICONS.slice(0, 4));
   const [visible, setVisible] = useState(true);
   const [dark, setDark]       = useState(false);
+
+  useEffect(() => {
+    setIcons(pick4());
+  }, []);
 
   const rotate = useCallback(() => {
     setVisible(false);
