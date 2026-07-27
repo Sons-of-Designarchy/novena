@@ -1,6 +1,6 @@
 ---
 name: deploy
-description: Ships pending Novena website changes to the live site at novena-pied.vercel.app. Use when the user mentions deploy, publish, push it live, update the real site, or ship it. Handles build verification, commit, PR, merge, and confirming the change actually reached production.
+description: Ships pending Novena website changes to the live site at www.estudionovena.com. Use when the user mentions deploy, publish, push it live, update the real site, or ship it. Handles build verification, commit, PR, merge, and confirming the change actually reached production.
 version: 1.0.0
 user-invocable: true
 argument-hint: "[what changed]"
@@ -15,7 +15,7 @@ must never pass through Claude.
 | | |
 |---|---|
 | App | `web/` — Next.js 16, Tailwind v4 |
-| Live | https://novena-pied.vercel.app (deploys from `main`) |
+| Live | https://www.estudionovena.com — Vercel project `novena-soda-wip`, team `daniel-pliegos-projects`, account `hola@casasoda.com` (`hola-8635`) |
 | Node | 24.0.0 via nvm — **required** |
 
 Every shell touching node or npm needs this first, because nvm does not
@@ -60,21 +60,28 @@ mean the change is live. Diff the served stylesheet against something unique to
 the change:
 
 ```bash
-CSS=$(curl -s https://novena-pied.vercel.app/es | grep -o '/_next/static/[^"]*\.css' | head -1)
-curl -s "https://novena-pied.vercel.app$CSS" | grep -c '<string unique to the change>'
+CSS=$(curl -s https://www.estudionovena.com/es | grep -o '/_next/static/[^"]*\.css' | head -1)
+curl -s "https://www.estudionovena.com$CSS" | grep -c '<string unique to the change>'
 ```
 
 Poll every 30s for a few minutes, then report honestly whether it landed.
 
 ## Known traps
 
-**Vercel does not report to GitHub on this repo.** Zero deployment records
-across its entire history; no commit has ever carried a status check. There are
-no preview URLs in PRs and no green checkmarks — their absence means nothing.
-It may also mean pushes do not trigger deploys at all: on 2026-07-24 a merge to
-`main` had produced no build after 7+ minutes. If production does not update,
-the deploy is likely triggered by hand from the Vercel dashboard (org
-`srshadids-projects`). Say that plainly instead of waiting indefinitely.
+**There are two dead Vercel projects — never use them.** `novena-pied.vercel.app`
+(org `srshadids-projects`) and `novena-soda.vercel.app` are old, abandoned
+projects. The only real production is `novena-soda-wip` serving
+https://www.estudionovena.com. Anything that mentions novena-pied is outdated.
+
+**If merging to `main` does not trigger a build**, the project's GitHub
+connection may be missing (it was disconnected once before — that caused a
+month of stale production in July 2026). Check with
+`vercel api /v9/projects/prj_gZiHzWSXV3gHM66IyO0qixo0bDeN` — the `link` field
+must reference `Sons-of-Designarchy/novena`; reconnect with
+`cd web && vercel git connect`. Manual fallback that always works:
+`cd web && vercel deploy --prod --yes` (requires `vercel whoami` → `hola-8635`;
+if it shows another account, hand over `vercel login` — never handle
+credentials).
 
 **GitHub auth.** `gh` is authenticated as `estudionovena`, granted Write on
 2026-07-24. If a push 403s, check

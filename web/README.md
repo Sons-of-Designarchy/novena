@@ -34,5 +34,5 @@ web/
 
 Este directorio (`web/`) es el **root directory** configurado en el proyecto de Vercel.
 
-- **Producción:** https://novena-pied.vercel.app
-- **Preview WIP:** https://novena-wip.vercel.app
+- **Producción:** https://www.estudionovena.com (proyecto Vercel `novena-soda-wip`, team `daniel-pliegos-projects`)
+- **URL de Vercel:** https://novena-soda-wip.vercel.app

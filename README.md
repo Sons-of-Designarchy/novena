@@ -30,15 +30,17 @@ Abrir [http://localhost:3000](http://localhost:3000).
 
 ## Deploy en Vercel
 
-El proyecto está desplegado en Vercel bajo la organización `srshadids-projects`.
+El proyecto está desplegado en Vercel en el proyecto `novena-soda-wip` del team `daniel-pliegos-projects` (cuenta `hola@casasoda.com`).
 
 | | |
 |---|---|
 | **Root directory** | `web/` |
 | **Build command** | `next build` |
 | **Install command** | `npm install` |
-| **Production** | https://novena-pied.vercel.app |
-| **Preview (WIP)** | https://novena-wip.vercel.app |
+| **Production** | https://www.estudionovena.com |
+| **URL de Vercel** | https://novena-soda-wip.vercel.app |
+
+> ⚠️ Los proyectos viejos `novena-pied.vercel.app` (org `srshadids-projects`) y `novena-soda.vercel.app` están abandonados — no usarlos.
 
 Al conectar este repo a Vercel, asegurarse de configurar **Root Directory → `web/`** en el proyecto.
 

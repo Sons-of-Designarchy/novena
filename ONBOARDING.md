@@ -35,7 +35,7 @@ That's genuinely all you need to get moving. The rest of this doc is reference f
 
 ## What you're working on
 
-**Novena** is the website for Estudio Novena, a recording studio in Mexico City. It's live at https://novena-pied.vercel.app. Your changes happen on a copy running **on your own computer** first (nobody sees them until we decide to publish), so you can experiment freely — you can't break the real site.
+**Novena** is the website for Estudio Novena, a recording studio in Mexico City. It's live at https://www.estudionovena.com. Your changes happen on a copy running **on your own computer** first (nobody sees them until we decide to publish), so you can experiment freely — you can't break the real site.
 
 The site is bilingual (Spanish + English) and design is what matters most here. This project is built for people who describe design in words.
 
