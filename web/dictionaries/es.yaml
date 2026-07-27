@@ -6,7 +6,7 @@ nav:
   home: Inicio
   gear: Gear
   team: Equipo
-  gallery: Galería
+  studios: Estudios
   artists: Artistas
   contact: Contacto
 
@@ -88,3 +88,40 @@ footer:
   followLabel: Síguenos
   locationLabel: Ubicación
   langLabel: Idioma
+
+studios:
+  eyebrow: Dónde vas a trabajar
+  title: Estudios
+  intro: >-
+    Tres salas, cada una pensada para una parte distinta de hacer un disco —
+    más un patio para salir a tomar aire y un departamento para artistas que
+    vienen de fuera.
+  purposeLabel: Ideal para
+  gearLabel: Vive en esta sala
+  bookRoom: Reservar esta sala
+  spacesLabel: El resto del lugar
+  aroundLabel: Por el estudio
+  rooms:
+    studio-a:
+      name: Studio A
+      tagline: Sala de control y sala en vivo
+      purpose: Grabación de banda completa, mezcla
+    studio-b:
+      name: Studio B
+      tagline: Un patio de juegos para experimentar
+      purpose: Grabación, experimentación
+    studio-c:
+      name: Studio C
+      tagline: Sala de producción, enfocada en sintetizadores
+      purpose: Producción, composición
+  spaces:
+    patio:
+      name: Patio
+      body: >-
+        Un patio cómodo para los ratos libres y para convivir con los amigos
+        del estudio.
+    apartment:
+      name: Departamento
+      body: >-
+        Para artistas que vienen de fuera — un lugar donde quedarse, con un
+        setup de producción simple monitoreado en Neumann KH120s.

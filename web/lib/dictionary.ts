@@ -10,7 +10,7 @@ export interface Dict {
     home: string;
     gear: string;
     team: string;
-    gallery: string;
+    studios: string;
     artists: string;
     contact: string;
   };
@@ -32,6 +32,21 @@ export interface Dict {
     eyebrow: string;
     title: string;
     categories: Record<string, string>;
+  };
+  studios: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    purposeLabel: string;
+    gearLabel: string;
+    bookRoom: string;
+    spacesLabel: string;
+    aroundLabel: string;
+    rooms: Record<
+      string,
+      { name: string; tagline: string; purpose: string } | undefined
+    >;
+    spaces: Record<string, { name: string; body: string } | undefined>;
   };
   artists: {
     eyebrow: string;

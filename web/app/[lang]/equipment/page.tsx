@@ -40,8 +40,9 @@ const gear: { category: string; items: string[] }[] = [
   {
     category: "Monitores y Monitoreo",
     items: [
-      "Neumann KH310A con KH750", "Neumann KH120", "Adam Audio A77H",
-      "Adam Audio A7", "AVIOM A-16 con mixers",
+      "Neumann KH310A con KH750 (Studio A)", "Neumann KH120 (Patio apartment)",
+      "Adam Audio A77H (Studio C)", "Adam Audio A7 (Studio B)",
+      "AVIOM A-16 con mixers",
     ],
   },
   {
@@ -63,6 +64,7 @@ const gear: { category: string; items: string[] }[] = [
       "SX 8-string lap steel", "Epiphone Casino Fully Hollow Electric",
       "Gretsch G2622 semi-hollow", "Fender Stratocaster",
       "Epiphone Riviera Elite", "Fender Acoustic Nashville Tuning",
+      "Laguna LE300 Electric Guitar (fretless mod)",
     ],
   },
   {
@@ -86,9 +88,9 @@ const gear: { category: string; items: string[] }[] = [
   {
     category: "Sintetizadores y teclados",
     items: [
-      "Moog Grandmother (Estudio Solarium)", "Erika Synths Bassline (Estudio Solarium)",
-      "Sequential OB6 (Estudio A)", "Korg Microkorg 37 (Estudio A)",
-      "Farfisa VIP-600 Dual (Estudio A)", '70s Baldwin Electric Organ "Fun Machine"',
+      "Yamaha U3 Upright Piano", "Moog Grandmother", "Erika Synths Bassline",
+      "Sequential OB6", "Korg Microkorg 37",
+      "Farfisa VIP-600 Dual", '70s Baldwin Electric Organ "Fun Machine"',
     ],
   },
   {

@@ -10,6 +10,7 @@ export type Theme = "azul" | "naranja" | "verde";
  */
 export const THEME_BY_PATH: Record<string, Theme> = {
   "/": "naranja",
+  "/studios": "azul",
   "/equipment": "azul",
   "/artists": "verde",
   "/contact": "naranja",
