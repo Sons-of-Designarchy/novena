@@ -61,9 +61,14 @@ export interface Space {
   image: string;
 }
 
+/**
+ * Hidden while the copy and photos are refined — the page skips the whole
+ * section when this is empty. Restore by uncommenting; the dictionary entries
+ * under `studios.spaces` are still in place.
+ */
 export const SPACES: Space[] = [
-  { id: "patio", image: "/gallery/NOVENA-7867.jpg" },
-  { id: "apartment", image: "/gallery/NOVENA-8145.jpg" },
+  // { id: "patio", image: "/gallery/NOVENA-7867.jpg" },
+  // { id: "apartment", image: "/gallery/NOVENA-8145.jpg" },
 ];
 
 /** Photos not tied to a specific room — one grid at the foot of the page. */
