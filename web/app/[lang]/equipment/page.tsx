@@ -109,7 +109,7 @@ export default async function Equipment({ params }: { params: Promise<{ lang: st
   const gearImages = getGearImages();
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-[136px] pb-16 md:py-24">
 
         <div className="mb-14 md:mb-20" data-animate>
           <p
