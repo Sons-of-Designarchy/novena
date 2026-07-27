@@ -6,7 +6,7 @@ nav:
   home: Home
   gear: Gear
   team: Team
-  gallery: Gallery
+  studios: Studios
   artists: Artists
   contact: Contact
 
@@ -87,3 +87,38 @@ footer:
   followLabel: Follow
   locationLabel: Location
   langLabel: Language
+
+studios:
+  eyebrow: Where you'll work
+  title: Studios
+  intro: >-
+    Three rooms, each built for a different part of making a record — plus a
+    patio to step out to and an apartment for artists coming in from abroad.
+  purposeLabel: Built for
+  gearLabel: Lives in this room
+  bookRoom: Book this room
+  spacesLabel: The rest of the place
+  aroundLabel: Around the studio
+  rooms:
+    studio-a:
+      name: Studio A
+      tagline: Control room and live room
+      purpose: Full-band tracking, mixing
+    studio-b:
+      name: Studio B
+      tagline: A playground for experimenting
+      purpose: Tracking, experimenting
+    studio-c:
+      name: Studio C
+      tagline: Production room, synth-focused
+      purpose: Production, writing
+  spaces:
+    patio:
+      name: Patio
+      body: >-
+        A comfortable patio for down time and hanging out with studio friends.
+    apartment:
+      name: Apartment
+      body: >-
+        For artists coming in from abroad — somewhere to stay, with a simple
+        production setup monitored on Neumann KH120s.

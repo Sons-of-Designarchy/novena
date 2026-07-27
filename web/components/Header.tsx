@@ -24,7 +24,7 @@ export default function Header() {
     { href: href("/"),          label: dict.nav.home },
     { href: href("/equipment"), label: dict.nav.gear },
     { href: href("/team"),      label: dict.nav.team },
-    { href: href("/gallery"),   label: dict.nav.gallery },
+    { href: href("/studios"),   label: dict.nav.studios },
   ];
   const rightLinks = [
     { href: href("/artists"),   label: dict.nav.artists },
