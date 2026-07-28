@@ -40,9 +40,8 @@ const gear: { category: string; items: string[] }[] = [
   {
     category: "Monitores y Monitoreo",
     items: [
-      "Neumann KH310A con KH750 (Studio A)", "Neumann KH120 (Patio apartment)",
-      "Adam Audio A77H (Studio C)", "Adam Audio A7 (Studio B)",
-      "AVIOM A-16 con mixers",
+      "Neumann KH310A con KH750", "Neumann KH120", "Adam Audio A77H",
+      "Adam Audio A7", "AVIOM A-16 con mixers",
     ],
   },
   {

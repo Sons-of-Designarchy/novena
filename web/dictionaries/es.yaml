@@ -48,6 +48,30 @@ home:
 team:
   eyebrow: Con quién trabajamos
   title: Equipo
+  bios:
+    ben: >-
+      Ítalo-tailandés. Dirige el estudio y las sesiones. Combina la gestión con
+      la producción, la composición y la docencia como profesor en SAE México.
+    felipe: >-
+      Productor, ingeniero y guitarrista chileno. Ganó los Latin Grammys que
+      están colgados en la pared del Estudio A, y volvió enseguida a crear.
+    ale: >-
+      Productor, ingeniero jefe y bajista mexicano. El que sabe dónde va cada
+      cable y por qué la sala suena así.
+    tom: >-
+      Productor, ingeniero y guitarrista de Minnesota. Muy experimental y
+      carpintero de la casa, construye los paneles y los paisajes sonoros desde
+      el Estudio B.
+    fabio: >-
+      Artista ítalo-británico conocido como Noize London. Escribe y graba aquí,
+      saca temazos de italo-disco y siempre anda con algún talento local en el
+      Estudio C.
+    dan: >-
+      Técnico de baterías y baterista mexicano. Afina los kits, toca los grooves
+      y mantiene la buena vibra. Siempre con pintura encima y una sonrisa.
+    rayito: >-
+      Mexicano. Recibe a cada visita, asiste a cada sesión, no aporta nada a la
+      mezcla y todo al ambiente.
 
 gear:
   eyebrow: Con qué trabajamos
@@ -113,15 +137,15 @@ studios:
   aroundLabel: Por el estudio
   rooms:
     studio-a:
-      name: Studio A
+      name: Estudio A
       tagline: Sala de control y sala en vivo
       purpose: Grabación de banda completa, mezcla
     studio-b:
-      name: Studio B
+      name: Estudio B
       tagline: Un patio de juegos para experimentar
       purpose: Grabación, experimentación
     studio-c:
-      name: Studio C
+      name: Estudio C
       tagline: Sala de producción, enfocada en sintetizadores
       purpose: Producción, composición
   spaces:

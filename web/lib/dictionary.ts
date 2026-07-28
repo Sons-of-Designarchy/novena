@@ -28,7 +28,11 @@ export interface Dict {
       sessions: string;
     };
   };
-  team: { eyebrow: string; title: string };
+  team: {
+    eyebrow: string;
+    title: string;
+    bios?: Record<string, string | undefined>;
+  };
   gear: {
     eyebrow: string;
     title: string;

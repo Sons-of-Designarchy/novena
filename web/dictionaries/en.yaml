@@ -47,6 +47,29 @@ home:
 team:
   eyebrow: Who we work with
   title: Team
+  bios:
+    ben: >-
+      Italo-Thai. Runs the studio and sessions. Combines management with
+      production, composition and education as a professor at SAE México.
+    felipe: >-
+      Chilean producer, engineer, guitarist. Won the Latin Grammys hanging on
+      the wall in Studio A, then went straight back to creating.
+    ale: >-
+      Mexican producer, head engineer, bassist. The one who knows where every
+      cable goes and why the room sounds like that.
+    tom: >-
+      Minnesotan producer, engineer, guitarist. Deeply experimental and our
+      in-house carpenter, building both panels and soundscapes in Studio B.
+    fabio: >-
+      Italo-British artist known as Noize London. Writes and records here,
+      releases italo-disco bangers and always has some local talent with him in
+      Studio C.
+    dan: >-
+      Mexican drum tech, drummer. Tunes kits, plays the grooves and keeps the
+      vibes on point. Always paint on his nails and a smile on his face.
+    rayito: >-
+      Mexican. Greets every visitor, attends every session, contributes nothing
+      to the mix and everything to the mood.
 
 gear:
   eyebrow: What we work with
