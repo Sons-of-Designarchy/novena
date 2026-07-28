@@ -53,7 +53,7 @@ export default async function Studios({
         </div>
       </section>
 
-      {STUDIOS.map((studio, i) => {
+      {STUDIOS.map((studio) => {
         const room = dict.studios.rooms[studio.id];
         if (!room) return null;
         return (
@@ -62,109 +62,62 @@ export default async function Studios({
             data-section="studio"
             className="max-w-7xl mx-auto px-5 md:px-8 py-12 md:py-20 border-t border-sand/50"
           >
-            <div className="lg:grid lg:grid-cols-12 lg:gap-12">
-              {/* Text column */}
-              <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start" data-animate>
-                <p
-                  className="text-sm tracking-[0.3em] uppercase text-sand mb-3"
-                  style={{ fontFamily: "var(--font-highway)" }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <h2
-                  className="uppercase leading-[0.92] tracking-tight text-cobalt
-                             text-[clamp(2.2rem,5vw,3.6rem)]"
-                  style={{ fontFamily: "var(--font-highway-exp)" }}
-                >
-                  {room.name}
-                </h2>
-                <p
-                  className="mt-3 text-ash text-sm tracking-[0.15em] uppercase"
-                  style={{ fontFamily: "var(--font-highway)" }}
-                >
-                  {room.tagline}
-                </p>
-
-                <dl className="mt-8 space-y-5">
-                  <div>
-                    <dt
-                      className="text-xs tracking-[0.3em] uppercase text-cobalt mb-2"
-                      style={{ fontFamily: "var(--font-highway)" }}
-                    >
-                      {dict.studios.purposeLabel}
-                    </dt>
-                    <dd
-                      className="text-ash text-sm"
-                      style={{ fontFamily: "var(--font-serif)" }}
-                    >
-                      {room.purpose}
-                    </dd>
-                  </div>
-
-                  {studio.gear.length > 0 && (
-                    <div>
-                      <dt
-                        className="text-xs tracking-[0.3em] uppercase text-cobalt mb-2"
-                        style={{ fontFamily: "var(--font-highway)" }}
-                      >
-                        {dict.studios.gearLabel}
-                      </dt>
-                      <dd>
-                        <ul className="space-y-[6px]">
-                          {studio.gear.map((item) => (
-                            <li
-                              key={item}
-                              className="text-ash text-sm flex items-start gap-2"
-                              style={{ fontFamily: "var(--font-serif)" }}
-                            >
-                              <span className="text-sand mt-[3px] shrink-0 text-xs">—</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </dd>
-                    </div>
-                  )}
-                </dl>
-
-                <Link
-                  href={withLocale("/contact", lang)}
-                  className="group mt-8 inline-flex items-center gap-2
-                             rounded-full border border-cobalt text-cobalt
-                             px-7 py-3 text-sm tracking-[0.2em] uppercase
-                             hover:bg-cobalt hover:text-ivory transition-colors"
-                  style={{ fontFamily: "var(--font-highway)" }}
-                >
-                  {dict.studios.bookRoom}
-                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
-              </div>
-
-              {/* Photos */}
-              <div className="lg:col-span-8 mt-10 lg:mt-0">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                  {studio.images.map((src, n) => (
-                    <div
-                      key={src}
-                      className={`relative overflow-hidden bg-sand/20
-                                  ${n === 0 ? "sm:col-span-2 aspect-[16/10]" : "aspect-[4/3]"}`}
-                      data-animate
-                      style={{ transitionDelay: `${n * 80}ms` }}
-                    >
-                      <Image
-                        src={src}
-                        alt={room.name}
-                        fill
-                        sizes="(min-width: 1024px) 45vw, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Header — name and tagline */}
+            <div className="mb-8 md:mb-10" data-animate>
+              <h2
+                className="uppercase leading-[0.92] tracking-tight text-cobalt
+                           text-[clamp(2.2rem,5vw,3.6rem)]"
+                style={{ fontFamily: "var(--font-highway-exp)" }}
+              >
+                {room.name}
+              </h2>
+              <p
+                className="mt-3 text-ash text-sm tracking-[0.15em] uppercase"
+                style={{ fontFamily: "var(--font-highway)" }}
+              >
+                {room.tagline}
+              </p>
             </div>
+
+            {/* Photos — capped narrower than the header on large screens, echoing the
+                width the old sidebar layout gave them, so a room doesn't turn into a
+                long scroll of oversized images */}
+            {studio.images.length > 0 && (
+              <div className="lg:max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                {studio.images.map((src, n) => (
+                  <div
+                    key={src}
+                    className={`relative overflow-hidden bg-sand/20
+                                ${n === 0 ? "sm:col-span-2 aspect-[16/10]" : "aspect-[4/3]"}`}
+                    data-animate
+                    style={{ transitionDelay: `${n * 80}ms` }}
+                  >
+                    <Image
+                      src={src}
+                      alt={room.name}
+                      fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* CTA — after the photos, since it's the most important action on the card */}
+            <Link
+              href={withLocale("/contact", lang)}
+              className="group mt-8 inline-flex items-center gap-2
+                         rounded-full border border-cobalt text-cobalt
+                         px-7 py-3 text-sm tracking-[0.2em] uppercase
+                         hover:bg-cobalt hover:text-ivory transition-colors"
+              style={{ fontFamily: "var(--font-highway)" }}
+            >
+              {dict.studios.bookRoom}
+              <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+                →
+              </span>
+            </Link>
           </section>
         );
       })}
@@ -178,23 +131,18 @@ export default async function Studios({
           >
             {dict.studios.spacesLabel}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-sand/50">
             {SPACES.map((space) => {
               const copy = dict.studios.spaces[space.id];
               if (!copy) return null;
               return (
-                <div key={space.id} data-animate>
-                  <div className="relative aspect-[16/10] overflow-hidden bg-sand/20">
-                    <Image
-                      src={space.image}
-                      alt={copy.name}
-                      fill
-                      sizes="(min-width: 768px) 45vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
+                <div
+                  key={space.id}
+                  className="py-8 sm:py-0 sm:px-8 first:sm:pl-0 last:sm:pr-0"
+                  data-animate
+                >
                   <h3
-                    className="mt-5 uppercase leading-none tracking-tight text-cobalt
+                    className="uppercase leading-none tracking-tight text-cobalt
                                text-[clamp(1.6rem,3vw,2.2rem)]"
                     style={{ fontFamily: "var(--font-highway-exp)" }}
                   >

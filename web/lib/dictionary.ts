@@ -42,15 +42,10 @@ export interface Dict {
     eyebrow: string;
     title: string;
     intro: string;
-    purposeLabel: string;
-    gearLabel: string;
     bookRoom: string;
     spacesLabel: string;
     aroundLabel: string;
-    rooms: Record<
-      string,
-      { name: string; tagline: string; purpose: string } | undefined
-    >;
+    rooms: Record<string, { name: string; tagline: string } | undefined>;
     spaces: Record<string, { name: string; body: string } | undefined>;
   };
   artists: {

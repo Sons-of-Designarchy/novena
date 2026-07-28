@@ -130,8 +130,6 @@ studios:
     Tres salas, cada una pensada para una parte distinta de hacer un disco —
     más un patio para salir a tomar aire y un departamento para artistas que
     vienen de fuera.
-  purposeLabel: Ideal para
-  gearLabel: Vive en esta sala
   bookRoom: Reservar esta sala
   spacesLabel: El resto del lugar
   aroundLabel: Por el estudio
@@ -139,15 +137,12 @@ studios:
     studio-a:
       name: Estudio A
       tagline: Sala de control y sala en vivo
-      purpose: Grabación de banda completa, mezcla
     studio-b:
       name: Estudio B
       tagline: Un patio de juegos para experimentar
-      purpose: Grabación, experimentación
     studio-c:
       name: Estudio C
       tagline: Sala de producción, enfocada en sintetizadores
-      purpose: Producción, composición
   spaces:
     patio:
       name: Patio
@@ -159,3 +154,7 @@ studios:
       body: >-
         Para artistas que vienen de fuera — un lugar donde quedarse, con un
         setup de producción simple monitoreado en Neumann KH120s.
+    kitchen:
+      name: Cocina
+      body: >-
+        El alma de la casa. Siempre hay café.
