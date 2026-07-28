@@ -19,6 +19,7 @@ export interface Dict {
     hero: { subtitle: string };
     about: { body: string };
     pillars: string[];
+    pillarsBody: string[];
     marquee: {
       studio: string;
       city: string;
