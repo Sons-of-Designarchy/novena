@@ -1,16 +1,8 @@
-import { readdirSync } from "fs";
-import path from "path";
-import GearSlider from "@/components/GearSlider";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/locale";
 import { getDictionary } from "@/lib/dictionary";
-
-function getGearImages(): string[] {
-  const dir = path.join(process.cwd(), "public/gear");
-  return readdirSync(dir)
-    .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
-    .map(f => `/gear/${encodeURIComponent(f)}`);
-}
+import { GEAR_PHOTOS } from "@/lib/gearPhotos";
+import GearCarousel from "@/components/GearCarousel";
 
 const gear: { category: string; items: string[] }[] = [
   {
@@ -40,9 +32,8 @@ const gear: { category: string; items: string[] }[] = [
   {
     category: "Monitores y Monitoreo",
     items: [
-      "Neumann KH310A con KH750 (Studio A)", "Neumann KH120 (Patio apartment)",
-      "Adam Audio A77H (Studio C)", "Adam Audio A7 (Studio B)",
-      "AVIOM A-16 con mixers",
+      "Neumann KH310A con KH750", "Neumann KH120", "Adam Audio A77H",
+      "Adam Audio A7", "AVIOM A-16 con mixers",
     ],
   },
   {
@@ -98,6 +89,7 @@ const gear: { category: string; items: string[] }[] = [
     items: [
       "Roland T-8", "Ableton Push", "Assorted Percussion",
       "Talkbox Rocktron", "Great assortment of guitar pedals",
+      "Lmdrum",
     ],
   },
 ];
@@ -106,7 +98,6 @@ export default async function Equipment({ params }: { params: Promise<{ lang: st
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
-  const gearImages = getGearImages();
   return (
     <div>
       <section className="max-w-7xl mx-auto px-5 md:px-8 pt-[136px] pb-16 md:py-24">
@@ -138,6 +129,10 @@ export default async function Equipment({ params }: { params: Promise<{ lang: st
               >
                 {dict.gear.categories[section.category] ?? section.category}
               </h2>
+              <GearCarousel
+                photos={GEAR_PHOTOS[section.category] ?? []}
+                alt={dict.gear.categories[section.category] ?? section.category}
+              />
               <ul className="space-y-[6px]">
                 {section.items.map((item) => (
                   <li
@@ -155,10 +150,6 @@ export default async function Equipment({ params }: { params: Promise<{ lang: st
         </div>
 
       </section>
-
-      {gearImages.length > 0 && (
-        <GearSlider images={gearImages} />
-      )}
     </div>
   );
 }

@@ -28,6 +28,16 @@ home:
     - Creación
     - Comunidad
     - Calidad
+  pillarsBody:
+    - >-
+      Somos gente que crea cosas. Eso va primero. Antes del equipo, antes de la
+      sala. Sin prisa, con curiosidad y siempre del lado de tu idea.
+    - >-
+      Quienes graban aquí vuelven, y traen a otros. No es una lista de
+      clientes. Es un círculo que creció sesión por sesión.
+    - >-
+      Preferimos lograr la toma que arreglarla. Cadena analógica, monitores en
+      los que puedes confiar y el tiempo que de verdad toma hacerlo bien.
   marquee:
     studio: Estudio Novena
     city: Ciudad de México
@@ -38,6 +48,30 @@ home:
 team:
   eyebrow: Con quién trabajamos
   title: Equipo
+  bios:
+    ben: >-
+      Ítalo-tailandés. Dirige el estudio y las sesiones. Combina la gestión con
+      la producción, la composición y la docencia como profesor en SAE México.
+    felipe: >-
+      Productor, ingeniero y guitarrista chileno. Ganó los Latin Grammys que
+      están colgados en la pared del Estudio A, y volvió enseguida a crear.
+    ale: >-
+      Productor, ingeniero jefe y bajista mexicano. El que sabe dónde va cada
+      cable y por qué la sala suena así.
+    tom: >-
+      Productor, ingeniero y guitarrista de Minnesota. Muy experimental y
+      carpintero de la casa, construye los paneles y los paisajes sonoros desde
+      el Estudio B.
+    fabio: >-
+      Artista ítalo-británico conocido como Noize London. Escribe y graba aquí,
+      saca temazos de italo-disco y siempre anda con algún talento local en el
+      Estudio C.
+    dan: >-
+      Técnico de baterías y baterista mexicano. Afina los kits, toca los grooves
+      y mantiene la buena vibra. Siempre con pintura encima y una sonrisa.
+    rayito: >-
+      Mexicano. Recibe a cada visita, asiste a cada sesión, no aporta nada a la
+      mezcla y todo al ambiente.
 
 gear:
   eyebrow: Con qué trabajamos
@@ -96,24 +130,19 @@ studios:
     Tres salas, cada una pensada para una parte distinta de hacer un disco —
     más un patio para salir a tomar aire y un departamento para artistas que
     vienen de fuera.
-  purposeLabel: Ideal para
-  gearLabel: Vive en esta sala
   bookRoom: Reservar esta sala
   spacesLabel: El resto del lugar
   aroundLabel: Por el estudio
   rooms:
     studio-a:
-      name: Studio A
+      name: Estudio A
       tagline: Sala de control y sala en vivo
-      purpose: Grabación de banda completa, mezcla
     studio-b:
-      name: Studio B
+      name: Estudio B
       tagline: Un patio de juegos para experimentar
-      purpose: Grabación, experimentación
     studio-c:
-      name: Studio C
+      name: Estudio C
       tagline: Sala de producción, enfocada en sintetizadores
-      purpose: Producción, composición
   spaces:
     patio:
       name: Patio
@@ -125,3 +154,7 @@ studios:
       body: >-
         Para artistas que vienen de fuera — un lugar donde quedarse, con un
         setup de producción simple monitoreado en Neumann KH120s.
+    kitchen:
+      name: Cocina
+      body: >-
+        El alma de la casa. Siempre hay café.

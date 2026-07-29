@@ -19,6 +19,7 @@ export interface Dict {
     hero: { subtitle: string };
     about: { body: string };
     pillars: string[];
+    pillarsBody: string[];
     marquee: {
       studio: string;
       city: string;
@@ -27,7 +28,11 @@ export interface Dict {
       sessions: string;
     };
   };
-  team: { eyebrow: string; title: string };
+  team: {
+    eyebrow: string;
+    title: string;
+    bios?: Record<string, string | undefined>;
+  };
   gear: {
     eyebrow: string;
     title: string;
@@ -37,15 +42,10 @@ export interface Dict {
     eyebrow: string;
     title: string;
     intro: string;
-    purposeLabel: string;
-    gearLabel: string;
     bookRoom: string;
     spacesLabel: string;
     aroundLabel: string;
-    rooms: Record<
-      string,
-      { name: string; tagline: string; purpose: string } | undefined
-    >;
+    rooms: Record<string, { name: string; tagline: string } | undefined>;
     spaces: Record<string, { name: string; body: string } | undefined>;
   };
   artists: {

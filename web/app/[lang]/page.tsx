@@ -6,6 +6,7 @@ import ParallaxTexture from "@/components/ParallaxTexture";
 import ParallaxImage from "@/components/ParallaxImage";
 import SvgIcon from "@/components/SvgIcon";
 import HeroCollage from "@/components/HeroCollage";
+import Pillars from "@/components/Pillars";
 import { notFound } from "next/navigation";
 import { withLocale, isLocale } from "@/lib/locale";
 import { getDictionary } from "@/lib/dictionary";
@@ -253,23 +254,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-sand/50">
-            {dict.home.pillars.map((word, i) => (
-              <div
-                key={word}
-                className="py-8 sm:py-10 px-0 sm:px-3 lg:px-8 text-center"
-                data-animate
-                style={{ transitionDelay: `${i * 120}ms` }}
-              >
-                <p
-                  className="text-cobalt text-2xl sm:text-[clamp(1.05rem,2.8vw,2.375rem)] uppercase leading-tight"
-                  style={{ fontFamily: "var(--font-highway-exp)" }}
-                >
-                  {word}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Pillars words={dict.home.pillars} bodies={dict.home.pillarsBody} />
         </div>
       </section>
 

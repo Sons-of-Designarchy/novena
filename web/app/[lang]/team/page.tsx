@@ -3,18 +3,25 @@ import path from "path";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/locale";
 import { getDictionary } from "@/lib/dictionary";
+import TeamGrid from "@/components/TeamGrid";
 
-const TEAM_DATA: Record<string, { name: string; role: string; order: number }> = {
-  ben:    { name: "Ben Bultrini",    role: "Studio Manager / Prod / Mix / Rec", order: 1 },
-  felipe: { name: "Felipe Castro",   role: "Prod / Mix / Rec",                  order: 2 },
-  ale:    { name: "Alejandro Yelin", role: "Prod / Mix / Rec",                  order: 3 },
-  tom:    { name: "Tom Kearney",     role: "Prod / Mix / Rec",                  order: 4 },
-  fabio:  { name: "Fabio Lendrum",   role: "Resident Artist / Prod",            order: 5 },
-  dan:    { name: "Dan Pliego",      role: "Tech / Drums",                      order: 6 },
+/** `instagram` is the handle only — the component builds the URL. */
+const TEAM_DATA: Record<
+  string,
+  { name: string; role: string; order: number; instagram?: string }
+> = {
+  ben:    { name: "Ben Bultrini",    role: "Studio Manager / Prod / Mix / Rec", order: 1, instagram: "norbumusic" },
+  felipe: { name: "Felipe Castro",   role: "Prod / Mix / Rec",                  order: 2, instagram: "felicaster" },
+  ale:    { name: "Alejandro Yelin", role: "Prod / Mix / Rec",                  order: 3, instagram: "warawaramusica" },
+  tom:    { name: "Tom Kearney",     role: "Prod / Mix / Rec",                  order: 4, instagram: "brokeneveryangle" },
+  fabio:  { name: "Fabio Lendrum",   role: "Resident Artist / Prod",            order: 5, instagram: "noize_london" },
+  dan:    { name: "Dan Pliego",      role: "Tech / Drums",                      order: 6, instagram: "dan.pliego" },
   rayito: { name: "Yito",            role: "Chief Barking Officer",             order: 7 },
 };
 
-function getTeamMembers(): { src: string; name: string; role: string }[] {
+function getTeamMembers(): {
+  key: string; src: string; name: string; role: string; instagram?: string;
+}[] {
   const dir = path.join(process.cwd(), "public/team");
   return readdirSync(dir)
     .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
@@ -22,10 +29,10 @@ function getTeamMembers(): { src: string; name: string; role: string }[] {
       const base = f.replace(/\.[^.]+$/, "");
       const key  = (base.match(/^[a-zA-Z]+/)?.[0] ?? base).toLowerCase();
       const data = TEAM_DATA[key] ?? { name: key, role: "", order: 99 };
-      return { src: `/team/${encodeURIComponent(f)}`, ...data };
+      return { key, src: `/team/${encodeURIComponent(f)}`, ...data };
     })
     .sort((a, b) => a.order - b.order)
-    .map(({ src, name, role }) => ({ src, name, role }));
+    .map(({ key, src, name, role, instagram }) => ({ key, src, name, role, instagram }));
 }
 
 export default async function Team({ params }: { params: Promise<{ lang: string }> }) {
@@ -54,34 +61,9 @@ export default async function Team({ params }: { params: Promise<{ lang: string 
       </section>
 
       <div className="max-w-7xl mx-auto px-5 md:px-8 pb-16 md:pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-3" style={{ gap: 2 }}>
-          {teamMembers.map(({ src, name, role }) => (
-            <div key={src}>
-              <div className="h-[240px] md:h-[340px] lg:h-[420px] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt={name}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }}
-                />
-              </div>
-              <div className="pt-3 pb-8 px-1">
-                <p
-                  className="text-xs tracking-[0.15em] uppercase text-dusk leading-tight"
-                  style={{ fontFamily: "var(--font-highway)" }}
-                >
-                  {name}
-                </p>
-                <p
-                  className="text-xs text-ash mt-1 italic"
-                  style={{ fontFamily: "var(--font-serif)" }}
-                >
-                  {role}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <TeamGrid
+          members={teamMembers.map((m) => ({ ...m, bio: dict.team.bios?.[m.key] }))}
+        />
       </div>
     </div>
   );
