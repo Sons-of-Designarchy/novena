@@ -56,8 +56,9 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                   >
                     <span
                       aria-hidden
-                      className={`absolute top-3 right-3 w-6 h-6 flex items-center justify-center
-                                  text-lg leading-none transition-all duration-300 rounded-full
+                      className={`absolute top-2 right-2 sm:top-3 sm:right-3 w-5 h-5 sm:w-6 sm:h-6
+                                  flex items-center justify-center
+                                  text-[13px] sm:text-lg leading-none transition-all duration-300 rounded-full
                                   ${isOpen
                                     ? "text-ivory rotate-45"
                                     : "text-ivory/0 group-hover:text-ivory/90 group-hover:bg-cobalt/70"}`}
