@@ -91,9 +91,10 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                         rel="noopener noreferrer"
                         tabIndex={isOpen ? 0 : -1}
                         aria-hidden={!isOpen}
-                        className={`mt-4 self-start inline-flex items-center gap-2
+                        className={`mt-3 sm:mt-4 self-start inline-flex items-center gap-1.5 sm:gap-2
                                     rounded-full border border-ivory/60 text-ivory
-                                    px-4 py-2 text-xs tracking-[0.2em] uppercase
+                                    px-2.5 py-1 sm:px-4 sm:py-2 text-[9px] sm:text-xs
+                                    tracking-[0.1em] sm:tracking-[0.2em] uppercase
                                     hover:bg-ivory hover:text-cobalt transition-colors
                                     ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
                         style={{ fontFamily: "var(--font-highway)" }}
