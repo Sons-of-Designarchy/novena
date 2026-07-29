@@ -56,8 +56,9 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                   >
                     <span
                       aria-hidden
-                      className={`absolute top-3 right-3 w-6 h-6 flex items-center justify-center
-                                  text-lg leading-none transition-all duration-300 rounded-full
+                      className={`absolute top-2 right-2 sm:top-3 sm:right-3 w-5 h-5 sm:w-6 sm:h-6
+                                  flex items-center justify-center
+                                  text-[13px] sm:text-lg leading-none transition-all duration-300 rounded-full
                                   ${isOpen
                                     ? "text-ivory rotate-45"
                                     : "text-ivory/0 group-hover:text-ivory/90 group-hover:bg-cobalt/70"}`}
@@ -75,7 +76,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                   >
                     {bio && (
                       <p
-                        className={`text-ivory text-[10px] sm:text-sm leading-relaxed transition-transform duration-300 ease-out
+                        className={`text-ivory text-[12px] sm:text-sm leading-relaxed transition-transform duration-300 ease-out
                                     ${isOpen ? "translate-y-0" : "translate-y-2"}`}
                         style={{ fontFamily: "var(--font-serif)" }}
                       >
@@ -90,9 +91,10 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                         rel="noopener noreferrer"
                         tabIndex={isOpen ? 0 : -1}
                         aria-hidden={!isOpen}
-                        className={`mt-4 self-start inline-flex items-center gap-2
+                        className={`mt-3 sm:mt-4 self-start inline-flex items-center gap-1.5 sm:gap-2
                                     rounded-full border border-ivory/60 text-ivory
-                                    px-4 py-2 text-xs tracking-[0.2em] uppercase
+                                    px-2.5 py-1 sm:px-4 sm:py-2 text-[11px] sm:text-xs
+                                    tracking-[0.1em] sm:tracking-[0.2em] uppercase
                                     hover:bg-ivory hover:text-cobalt transition-colors
                                     ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
                         style={{ fontFamily: "var(--font-highway)" }}
