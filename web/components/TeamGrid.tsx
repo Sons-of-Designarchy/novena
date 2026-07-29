@@ -75,7 +75,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                   >
                     {bio && (
                       <p
-                        className={`text-ivory text-sm leading-relaxed transition-transform duration-300 ease-out
+                        className={`text-ivory text-[10px] sm:text-sm leading-relaxed transition-transform duration-300 ease-out
                                     ${isOpen ? "translate-y-0" : "translate-y-2"}`}
                         style={{ fontFamily: "var(--font-serif)" }}
                       >
