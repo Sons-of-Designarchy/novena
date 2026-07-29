@@ -76,7 +76,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                   >
                     {bio && (
                       <p
-                        className={`text-ivory text-[11px] sm:text-sm leading-relaxed transition-transform duration-300 ease-out
+                        className={`text-ivory text-[12px] sm:text-sm leading-relaxed transition-transform duration-300 ease-out
                                     ${isOpen ? "translate-y-0" : "translate-y-2"}`}
                         style={{ fontFamily: "var(--font-serif)" }}
                       >
@@ -93,7 +93,7 @@ export default function TeamGrid({ members }: { members: TeamMember[] }) {
                         aria-hidden={!isOpen}
                         className={`mt-3 sm:mt-4 self-start inline-flex items-center gap-1.5 sm:gap-2
                                     rounded-full border border-ivory/60 text-ivory
-                                    px-2.5 py-1 sm:px-4 sm:py-2 text-[10px] sm:text-xs
+                                    px-2.5 py-1 sm:px-4 sm:py-2 text-[11px] sm:text-xs
                                     tracking-[0.1em] sm:tracking-[0.2em] uppercase
                                     hover:bg-ivory hover:text-cobalt transition-colors
                                     ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
