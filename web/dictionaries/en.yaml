@@ -71,6 +71,12 @@ team:
       Mexican. Greets every visitor (quietly), contributing nothing to the mix
       and everything to the mood.
 
+scl:
+  eyebrow: Estudio Novena
+  title: Santiago de Chile
+  locationLabel: Location
+  location: Vitacura, Santiago de Chile
+
 gear:
   eyebrow: What we work with
   title: Gear
@@ -84,6 +90,14 @@ gear:
     "Batería": Drums
     "Sintetizadores y teclados": Synths & Keyboards
     "Juguetes": Toys
+    "Preamplificadores": Preamps
+    "Sintetizadores & Controladores": Synths & Controllers
+    "Baterías": Drums
+    "Cajas": Snares
+    "Platillos": Cymbals
+    "Outboard": Outboard
+    "Guitarras y Bajos": Guitars & Basses
+    "Monitoreo y Convertidores": Monitoring & Converters
 
 artists:
   eyebrow: Who we've worked with

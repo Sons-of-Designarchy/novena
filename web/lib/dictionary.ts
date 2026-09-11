@@ -33,6 +33,12 @@ export interface Dict {
     title: string;
     bios?: Record<string, string | undefined>;
   };
+  scl: {
+    eyebrow: string;
+    title: string;
+    locationLabel: string;
+    location: string;
+  };
   gear: {
     eyebrow: string;
     title: string;
