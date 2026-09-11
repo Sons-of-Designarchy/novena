@@ -14,8 +14,8 @@ const TEAM_DATA: Record<
   felipe: { name: "Felipe Castro",   role: "Prod / Mix / Rec",                  order: 2, instagram: "felicaster" },
   ale:    { name: "Alejandro Yelin", role: "Prod / Mix / Rec",                  order: 3, instagram: "warawaramusica" },
   tom:    { name: "Tom Kearney",     role: "Prod / Mix / Rec",                  order: 4, instagram: "brokeneveryangle" },
-  fabio:  { name: "Fabio Lendrum",   role: "Resident Artist / Prod",            order: 5, instagram: "noize_london" },
-  dan:    { name: "Dan Pliego",      role: "Tech / Drums",                      order: 6, instagram: "dan.pliego" },
+  dan:    { name: "Dan Pliego",      role: "Tech / Drums",                      order: 5, instagram: "dan.pliego" },
+  fabio:  { name: "Fabio Lendrum",   role: "Resident Artist / Prod",            order: 6, instagram: "noize_london" },
   rayito: { name: "Yito",            role: "Chief Barking Officer",             order: 7 },
 };
 
