@@ -19,17 +19,10 @@ export default async function Artists({ params }: { params: Promise<{ lang: stri
         backgroundRepeat="repeat"
       />
 
-      <section className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-24">
+      <section className="relative z-10 max-w-7xl mx-auto px-5 md:px-8 pt-[120px] md:pt-24 pb-16 md:pb-24">
 
         {/* Header */}
         <div className="mb-14 md:mb-20">
-          <p
-            className="text-sm tracking-[0.3em] uppercase text-ash mb-4
-                       opacity-0 animate-fade-up"
-            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
-          >
-            {dict.artists.eyebrow}
-          </p>
           <h1
             className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
                        opacity-0 animate-fade-up delay-100"

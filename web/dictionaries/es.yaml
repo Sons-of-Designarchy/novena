@@ -18,11 +18,12 @@ home:
     subtitle: abrazamos tu música
   about:
     body: >-
-      Estudio ganador del Grammy y Latin Grammy con sedes en Ciudad de México
-      y Santiago de Chile. Novena se ha convertido en un hogar para músicos
-      latinoamericanos e internacionales. Recibiendo desde artistas
-      emergentes hasta figuras globales, atraídos por un ambiente acogedor y
-      colaborativo donde la visión artística se trabaja con precisión.
+      Estudio independiente ganador del Grammy y Latin Grammy con sedes en
+      Ciudad de México y Santiago de Chile. Novena se ha convertido en un
+      hogar para músicos latinoamericanos e internacionales. Recibiendo desde
+      artistas emergentes hasta figuras globales, atraídos por un ambiente
+      acogedor y colaborativo donde la visión artística se trabaja con
+      precisión.
   pillars:
     - Creación
     - Comunidad
@@ -45,7 +46,6 @@ home:
     sessions: Sesiones
 
 team:
-  eyebrow: Con quién trabajamos
   title: Equipo
   bios:
     ben: >-
@@ -101,7 +101,6 @@ gear:
     "Monitoreo y Convertidores": Monitoreo y Convertidores
 
 artists:
-  eyebrow: Con quiénes hemos trabajado
   title: Artistas
   body: >-
     Una selección de los artistas y proyectos que han grabado, mezclado o
@@ -116,6 +115,21 @@ contact:
     firstName: Nombre
     lastName: Apellido
     email: Email
+    lookingFor: ¿Qué buscas?
+    services:
+      recording: Grabación
+      production: Producción
+      mixing: Mezcla
+      other: Otro
+    otherPlaceholder: Especifica
+    songCount: ¿Cuántas canciones vas a trabajar?
+    sessionType: ¿Qué tipo de sesión de grabación?
+    sessionTypeOptions:
+      singleDay: Un día
+      halfDay: Medio día
+      liveSession: Sesión en vivo
+      other: Otro
+    selectPlaceholder: Selecciona…
     message: Mensaje
     send: Enviar
     sending: Enviando…
@@ -123,7 +137,7 @@ contact:
   sent:
     title: Mensaje enviado.
     body: Estaremos en contacto pronto.
-  locationLabel: Ubicación
+  locationLabel: Ubicaciones
   emailLabel: Email
 
 footer:
@@ -137,7 +151,6 @@ footer:
   langLabel: Idioma
 
 studios:
-  eyebrow: Dónde vas a trabajar
   title: Estudios
   intro: >-
     Tres salas, cada una pensada para una parte distinta de hacer un disco —

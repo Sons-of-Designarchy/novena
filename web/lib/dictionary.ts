@@ -29,7 +29,6 @@ export interface Dict {
     };
   };
   team: {
-    eyebrow: string;
     title: string;
     bios?: Record<string, string | undefined>;
   };
@@ -45,7 +44,6 @@ export interface Dict {
     categories: Record<string, string>;
   };
   studios: {
-    eyebrow: string;
     title: string;
     intro: string;
     bookRoom: string;
@@ -55,7 +53,6 @@ export interface Dict {
     spaces: Record<string, { name: string; body: string } | undefined>;
   };
   artists: {
-    eyebrow: string;
     title: string;
     body: string;
     playlistLabel: string;
@@ -67,6 +64,23 @@ export interface Dict {
       firstName: string;
       lastName: string;
       email: string;
+      lookingFor: string;
+      services: {
+        recording: string;
+        production: string;
+        mixing: string;
+        other: string;
+      };
+      otherPlaceholder: string;
+      songCount: string;
+      sessionType: string;
+      sessionTypeOptions: {
+        singleDay: string;
+        halfDay: string;
+        liveSession: string;
+        other: string;
+      };
+      selectPlaceholder: string;
       message: string;
       send: string;
       sending: string;

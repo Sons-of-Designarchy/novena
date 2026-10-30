@@ -18,11 +18,11 @@ home:
     subtitle: we embrace your music
   about:
     body: >-
-      Grammy and Latin Grammy winning studio with locations in Mexico City
-      and Santiago de Chile. Novena has become a home for Latin American
-      and international musicians. Welcoming everyone from emerging artists
-      to global names drawn by a warm, collaborative atmosphere where the
-      artistic vision is meticulously crafted.
+      Independent Grammy and Latin Grammy winning studio with locations in
+      Mexico City and Santiago de Chile. Novena has become a home for Latin
+      American and international musicians. Welcoming everyone from emerging
+      artists to global names drawn by a warm, collaborative atmosphere where
+      the artistic vision is meticulously crafted.
   pillars:
     - Creation
     - Community
@@ -45,7 +45,6 @@ home:
     sessions: Sessions
 
 team:
-  eyebrow: Who we work with
   title: Team
   bios:
     ben: >-
@@ -100,7 +99,6 @@ gear:
     "Monitoreo y Convertidores": Monitoring & Converters
 
 artists:
-  eyebrow: Who we've worked with
   title: Artists
   body: >-
     A selection of the artists and projects that have recorded, mixed or
@@ -115,6 +113,21 @@ contact:
     firstName: First name
     lastName: Last name
     email: Email
+    lookingFor: What are you looking for?
+    services:
+      recording: Recording
+      production: Production
+      mixing: Mixing
+      other: Other
+    otherPlaceholder: Please specify
+    songCount: How many songs are you working on?
+    sessionType: What kind of recording session?
+    sessionTypeOptions:
+      singleDay: Single day
+      halfDay: Half day
+      liveSession: Live session
+      other: Other
+    selectPlaceholder: Select…
     message: Message
     send: Send
     sending: Sending…
@@ -122,7 +135,7 @@ contact:
   sent:
     title: Message sent.
     body: We'll be in touch soon.
-  locationLabel: Location
+  locationLabel: Locations
   emailLabel: Email
 
 footer:
@@ -136,7 +149,6 @@ footer:
   langLabel: Language
 
 studios:
-  eyebrow: Where you'll work
   title: Studios
   intro: >-
     Three rooms, each built for a different part of making a record — plus a

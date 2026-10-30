@@ -28,15 +28,8 @@ export default async function Studios({
 
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-6 md:pb-8">
+      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-[120px] md:pt-24 pb-6 md:pb-8">
         <div data-animate>
-          <p
-            className="text-sm tracking-[0.3em] uppercase text-ash mb-4
-                       opacity-0 animate-fade-up"
-            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
-          >
-            {dict.studios.eyebrow}
-          </p>
           <div className="inline-block">
             <h1
               className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
