@@ -18,11 +18,11 @@ home:
     subtitle: we embrace your music
   about:
     body: >-
-      A Grammy and Latin Grammy winning studio in the Narvarte neighborhood of
-      Mexico City. It has become a home for Latin American and international
-      musicians — welcoming everyone from emerging artists to global names —
-      all drawn by a warm, collaborative atmosphere where the artistic vision
-      always finds its place.
+      Independent Grammy and Latin Grammy winning studio with locations in
+      Mexico City and Santiago de Chile. Novena has become a home for Latin
+      American and international musicians. Welcoming everyone from emerging
+      artists to global names drawn by a warm, collaborative atmosphere where
+      the artistic vision is meticulously crafted.
   pillars:
     - Creation
     - Community
@@ -45,31 +45,36 @@ home:
     sessions: Sessions
 
 team:
-  eyebrow: Who we work with
   title: Team
   bios:
     ben: >-
-      Italo-Thai. Runs the studio and sessions. Combines management with
-      production, composition and education as a professor at SAE México.
+      Italo-Thai. Combines work in music with managing the studio, and
+      education as a professor at SAE México.
     felipe: >-
       Chilean producer, engineer, guitarist. Won the Latin Grammys hanging on
-      the wall in Studio A, then went straight back to creating.
+      the wall, then went straight back to creating. Co-founder of Estudio
+      Novena in 2022.
     ale: >-
-      Mexican producer, head engineer, bassist. The one who knows where every
-      cable goes and why the room sounds like that.
+      Mexican producer, engineer, songwriter and bassist. Making sure the song
+      is its best and the sound is on point. Always groovy.
     tom: >-
-      Minnesotan producer, engineer, guitarist. Deeply experimental and our
-      in-house carpenter, building both panels and soundscapes in Studio B.
+      Minnesotan producer, engineer, guitarist. Cares deeply about sound,
+      experimentation, and community.
     fabio: >-
-      Italo-British artist known as Noize London. Writes and records here,
-      releases italo-disco bangers and always has some local talent with him in
-      Studio C.
+      Italo-British resident artist known as Noize London. Writes and records
+      italo-disco in Studio C.
     dan: >-
-      Mexican drum tech, drummer. Tunes kits, plays the grooves and keeps the
+      Mexican drum tech, drummer and artist. Plays the grooves and keeps the
       vibes on point. Always paint on his nails and a smile on his face.
     rayito: >-
-      Mexican. Greets every visitor, attends every session, contributes nothing
-      to the mix and everything to the mood.
+      Mexican. Greets every visitor (quietly), contributing nothing to the mix
+      and everything to the mood.
+
+scl:
+  eyebrow: Estudio Novena
+  title: Santiago de Chile
+  locationLabel: Location
+  location: Vitacura, Santiago de Chile
 
 gear:
   eyebrow: What we work with
@@ -84,9 +89,16 @@ gear:
     "Batería": Drums
     "Sintetizadores y teclados": Synths & Keyboards
     "Juguetes": Toys
+    "Preamplificadores": Preamps
+    "Sintetizadores & Controladores": Synths & Controllers
+    "Baterías": Drums
+    "Cajas": Snares
+    "Platillos": Cymbals
+    "Outboard": Outboard
+    "Guitarras y Bajos": Guitars & Basses
+    "Monitoreo y Convertidores": Monitoring & Converters
 
 artists:
-  eyebrow: Who we've worked with
   title: Artists
   body: >-
     A selection of the artists and projects that have recorded, mixed or
@@ -101,6 +113,21 @@ contact:
     firstName: First name
     lastName: Last name
     email: Email
+    lookingFor: What are you looking for?
+    services:
+      recording: Recording
+      production: Production
+      mixing: Mixing
+      other: Other
+    otherPlaceholder: Please specify
+    songCount: How many songs are you working on?
+    sessionType: What kind of recording session?
+    sessionTypeOptions:
+      singleDay: Single day
+      halfDay: Half day
+      liveSession: Live session
+      other: Other
+    selectPlaceholder: Select…
     message: Message
     send: Send
     sending: Sending…
@@ -108,7 +135,7 @@ contact:
   sent:
     title: Message sent.
     body: We'll be in touch soon.
-  locationLabel: Location
+  locationLabel: Locations
   emailLabel: Email
 
 footer:
@@ -122,7 +149,6 @@ footer:
   langLabel: Language
 
 studios:
-  eyebrow: Where you'll work
   title: Studios
   intro: >-
     Three rooms, each built for a different part of making a record — plus a

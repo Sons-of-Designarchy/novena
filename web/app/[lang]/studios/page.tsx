@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale, withLocale } from "@/lib/locale";
 import { getDictionary } from "@/lib/dictionary";
 import { STUDIOS, SPACES, AROUND_THE_STUDIO } from "@/lib/studios";
+import CityToggle from "@/components/CityToggle";
 
 export async function generateMetadata({
   params,
@@ -27,22 +28,20 @@ export default async function Studios({
 
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-16 md:pt-24 pb-10 md:pb-16">
+      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-[120px] md:pt-24 pb-6 md:pb-8">
         <div data-animate>
-          <p
-            className="text-sm tracking-[0.3em] uppercase text-ash mb-4
-                       opacity-0 animate-fade-up"
-            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
-          >
-            {dict.studios.eyebrow}
-          </p>
-          <h1
-            className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
-                       opacity-0 animate-fade-up delay-100"
-            style={{ fontFamily: "var(--font-highway-exp)", animationFillMode: "forwards" }}
-          >
-            {dict.studios.title}
-          </h1>
+          <div className="inline-block">
+            <h1
+              className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
+                         opacity-0 animate-fade-up delay-100"
+              style={{ fontFamily: "var(--font-highway-exp)", animationFillMode: "forwards" }}
+            >
+              {dict.studios.title}
+            </h1>
+            <div className="mt-3">
+              <CityToggle size="tagline" color="cobalt" bold align="center" />
+            </div>
+          </div>
           <p
             className="mt-6 max-w-xl text-ash text-base md:text-lg leading-relaxed
                        opacity-0 animate-fade-up delay-200"

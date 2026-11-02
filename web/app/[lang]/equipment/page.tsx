@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/locale";
 import { getDictionary } from "@/lib/dictionary";
-import { GEAR_PHOTOS } from "@/lib/gearPhotos";
-import GearCarousel from "@/components/GearCarousel";
+import GearGallery from "@/components/GearGallery";
 
 const gear: { category: string; items: string[] }[] = [
   {
@@ -63,6 +62,7 @@ const gear: { category: string; items: string[] }[] = [
     items: [
       "Fender Custom Shop P-Bass", "Fender Jazz Bass Fretless",
       "Sandberg California 2 TM4", "Squier Jazz Bass", "Gibson Thunderbird Bass",
+      "Gibson SG Standard Bass Guitar",
     ],
   },
   {
@@ -79,7 +79,7 @@ const gear: { category: string; items: string[] }[] = [
   {
     category: "Sintetizadores y teclados",
     items: [
-      "Yamaha U3 Upright Piano", "Moog Grandmother", "Erika Synths Bassline",
+      "Yamaha U3 Upright Piano", "Fender Rhodes Mark I", "Moog Grandmother", "Erika Synths Bassline",
       "Sequential OB6", "Korg Microkorg 37",
       "Farfisa VIP-600 Dual", '70s Baldwin Electric Organ "Fun Machine"',
     ],
@@ -100,16 +100,9 @@ export default async function Equipment({ params }: { params: Promise<{ lang: st
   const dict = getDictionary(lang);
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-[136px] pb-16 md:py-24">
+      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-[136px] pb-10 md:pt-24 md:pb-14">
 
-        <div className="mb-14 md:mb-20" data-animate>
-          <p
-            className="text-sm tracking-[0.3em] uppercase text-ash mb-4
-                       opacity-0 animate-fade-up"
-            style={{ fontFamily: "var(--font-highway)", animationFillMode: "forwards" }}
-          >
-            {dict.gear.eyebrow}
-          </p>
+        <div data-animate>
           <h1
             className="text-[clamp(3rem,10vw,8rem)] uppercase leading-none tracking-tight text-cobalt
                        opacity-0 animate-fade-up delay-100"
@@ -118,21 +111,21 @@ export default async function Equipment({ params }: { params: Promise<{ lang: st
             {dict.gear.title}
           </h1>
         </div>
+      </section>
 
+      <GearGallery />
+
+      <section className="max-w-7xl mx-auto px-5 md:px-8 pt-14 md:pt-20 pb-16 md:pb-24">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
           {gear.map((section) => (
             <div key={section.category}>
               <h2
                 className="text-sm tracking-[0.3em] uppercase text-cobalt leading-snug
-                           flex items-end min-h-[3.9rem] mb-4 pb-3 border-b border-sand/70"
+                           mb-4 pb-3 border-b border-sand/70"
                 style={{ fontFamily: "var(--font-highway)" }}
               >
                 {dict.gear.categories[section.category] ?? section.category}
               </h2>
-              <GearCarousel
-                photos={GEAR_PHOTOS[section.category] ?? []}
-                alt={dict.gear.categories[section.category] ?? section.category}
-              />
               <ul className="space-y-[6px]">
                 {section.items.map((item) => (
                   <li

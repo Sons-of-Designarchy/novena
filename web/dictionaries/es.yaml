@@ -18,12 +18,12 @@ home:
     subtitle: abrazamos tu música
   about:
     body: >-
-      Es un estudio ganador del Grammy y Latin Grammy ubicado en la colonia
-      Narvarte de la Ciudad de México. Se ha convertido en un hogar para
-      músicos latinoamericanos e internacionales — recibiendo desde artistas
-      emergentes hasta figuras globales — todos atraídos por un ambiente
-      acogedor y colaborativo donde la visión artística siempre encuentra su
-      lugar.
+      Estudio independiente ganador del Grammy y Latin Grammy con sedes en
+      Ciudad de México y Santiago de Chile. Novena se ha convertido en un
+      hogar para músicos latinoamericanos e internacionales. Recibiendo desde
+      artistas emergentes hasta figuras globales, atraídos por un ambiente
+      acogedor y colaborativo donde la visión artística se trabaja con
+      precisión.
   pillars:
     - Creación
     - Comunidad
@@ -46,32 +46,37 @@ home:
     sessions: Sesiones
 
 team:
-  eyebrow: Con quién trabajamos
   title: Equipo
   bios:
     ben: >-
-      Ítalo-tailandés. Dirige el estudio y las sesiones. Combina la gestión con
-      la producción, la composición y la docencia como profesor en SAE México.
+      Ítalo-tailandés. Combina su trabajo en la música con la gestión del
+      estudio, y la docencia como profesor en SAE México.
     felipe: >-
       Productor, ingeniero y guitarrista chileno. Ganó los Latin Grammys que
-      están colgados en la pared del Estudio A, y volvió enseguida a crear.
+      están colgados en la pared, y volvió enseguida a crear. Co-fundador de
+      Estudio Novena en 2022.
     ale: >-
-      Productor, ingeniero jefe y bajista mexicano. El que sabe dónde va cada
-      cable y por qué la sala suena así.
+      Productor, ingeniero, compositor y bajista mexicano. Se asegura de que
+      la canción suene en su mejor versión y el sonido quede impecable.
+      Siempre con groove.
     tom: >-
-      Productor, ingeniero y guitarrista de Minnesota. Muy experimental y
-      carpintero de la casa, construye los paneles y los paisajes sonoros desde
-      el Estudio B.
+      Productor, ingeniero y guitarrista de Minnesota. Le apasiona el sonido,
+      la experimentación y la comunidad.
     fabio: >-
-      Artista ítalo-británico conocido como Noize London. Escribe y graba aquí,
-      saca temazos de italo-disco y siempre anda con algún talento local en el
-      Estudio C.
+      Artista residente ítalo-británico conocido como Noize London. Escribe y
+      graba italo-disco en el Estudio C.
     dan: >-
-      Técnico de baterías y baterista mexicano. Afina los kits, toca los grooves
-      y mantiene la buena vibra. Siempre con pintura encima y una sonrisa.
+      Técnico de baterías, baterista y artista mexicano. Toca los grooves y
+      mantiene la buena vibra. Siempre con pintura en las uñas y una sonrisa.
     rayito: >-
-      Mexicano. Recibe a cada visita, asiste a cada sesión, no aporta nada a la
-      mezcla y todo al ambiente.
+      Mexicano. Recibe a cada visita (en silencio), no aporta nada a la mezcla
+      y todo al ambiente.
+
+scl:
+  eyebrow: Estudio Novena
+  title: Santiago de Chile
+  locationLabel: Ubicación
+  location: Vitacura, Santiago de Chile
 
 gear:
   eyebrow: Con qué trabajamos
@@ -86,9 +91,16 @@ gear:
     "Batería": Batería
     "Sintetizadores y teclados": Sintetizadores y teclados
     "Juguetes": Juguetes
+    "Preamplificadores": Preamplificadores
+    "Sintetizadores & Controladores": Sintetizadores & Controladores
+    "Baterías": Baterías
+    "Cajas": Cajas
+    "Platillos": Platillos
+    "Outboard": Outboard
+    "Guitarras y Bajos": Guitarras y Bajos
+    "Monitoreo y Convertidores": Monitoreo y Convertidores
 
 artists:
-  eyebrow: Con quiénes hemos trabajado
   title: Artistas
   body: >-
     Una selección de los artistas y proyectos que han grabado, mezclado o
@@ -103,6 +115,21 @@ contact:
     firstName: Nombre
     lastName: Apellido
     email: Email
+    lookingFor: ¿Qué buscas?
+    services:
+      recording: Grabación
+      production: Producción
+      mixing: Mezcla
+      other: Otro
+    otherPlaceholder: Especifica
+    songCount: ¿Cuántas canciones vas a trabajar?
+    sessionType: ¿Qué tipo de sesión de grabación?
+    sessionTypeOptions:
+      singleDay: Un día
+      halfDay: Medio día
+      liveSession: Sesión en vivo
+      other: Otro
+    selectPlaceholder: Selecciona…
     message: Mensaje
     send: Enviar
     sending: Enviando…
@@ -110,7 +137,7 @@ contact:
   sent:
     title: Mensaje enviado.
     body: Estaremos en contacto pronto.
-  locationLabel: Ubicación
+  locationLabel: Ubicaciones
   emailLabel: Email
 
 footer:
@@ -124,7 +151,6 @@ footer:
   langLabel: Idioma
 
 studios:
-  eyebrow: Dónde vas a trabajar
   title: Estudios
   intro: >-
     Tres salas, cada una pensada para una parte distinta de hacer un disco —

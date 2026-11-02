@@ -29,6 +29,12 @@ export async function POST(request: Request) {
   const lastName = String(data.lastName ?? "").trim();
   const email = String(data.email ?? "").trim();
   const message = String(data.message ?? "").trim();
+  const services = Array.isArray(data.services)
+    ? data.services.map(String).filter(Boolean)
+    : [];
+  const otherService = String(data.otherService ?? "").trim();
+  const songCount = String(data.songCount ?? "").trim();
+  const sessionType = String(data.sessionType ?? "").trim();
 
   if (!firstName || !email || !message) {
     return Response.json({ error: "Faltan campos requeridos." }, { status: 400 });
@@ -38,6 +44,10 @@ export async function POST(request: Request) {
   }
 
   const fullName = `${firstName} ${lastName}`.trim();
+  const servicesLine = [
+    ...services.filter(s => s !== "other"),
+    ...(services.includes("other") ? [otherService ? `Other (${otherService})` : "Other"] : []),
+  ].join(", ") || "—";
 
   try {
     const { error } = await resend.emails.send({
@@ -45,12 +55,15 @@ export async function POST(request: Request) {
       to: TO,
       replyTo: email,
       subject: `Nuevo mensaje de contacto — ${fullName}`,
-      text: `Nombre: ${fullName}\nEmail: ${email}\n\nMensaje:\n${message}`,
+      text: `Nombre: ${fullName}\nEmail: ${email}\nBusca: ${servicesLine}\nCanciones: ${songCount || "—"}\nTipo de sesión: ${sessionType || "—"}\n\nMensaje:\n${message}`,
       html: `
         <div style="font-family: system-ui, sans-serif; line-height: 1.6; color: #1a1a18;">
           <h2 style="margin: 0 0 16px;">Nuevo mensaje de contacto</h2>
           <p><strong>Nombre:</strong> ${escapeHtml(fullName)}</p>
           <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+          <p><strong>Busca:</strong> ${escapeHtml(servicesLine)}</p>
+          <p><strong>Canciones:</strong> ${escapeHtml(songCount || "—")}</p>
+          <p><strong>Tipo de sesión:</strong> ${escapeHtml(sessionType || "—")}</p>
           <p><strong>Mensaje:</strong></p>
           <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
         </div>`,

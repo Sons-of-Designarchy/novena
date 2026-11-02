@@ -7,6 +7,7 @@ import ParallaxImage from "@/components/ParallaxImage";
 import SvgIcon from "@/components/SvgIcon";
 import HeroCollage from "@/components/HeroCollage";
 import Pillars from "@/components/Pillars";
+import CityToggle from "@/components/CityToggle";
 import { notFound } from "next/navigation";
 import { withLocale, isLocale } from "@/lib/locale";
 import { getDictionary } from "@/lib/dictionary";
@@ -102,6 +103,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           >
             {dict.home.hero.subtitle}
           </h1>
+
+          <div className="mt-4 opacity-0 animate-fade-up delay-200" style={{ animationFillMode: "forwards" }}>
+            <CityToggle size="hero" color="blue" />
+          </div>
 
           <Link
             href={withLocale("/contact", lang)}
