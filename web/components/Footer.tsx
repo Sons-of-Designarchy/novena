@@ -6,6 +6,7 @@ import ParallaxTexture from "./ParallaxTexture";
 import { themeForPath, footerBgForPath } from "@/app/themeMap";
 import { useI18n } from "./I18nProvider";
 import LangToggle from "./LangToggle";
+import { stripLocale } from "@/lib/locale";
 
 const THEME_FOOTER_COLORS: Record<string, string> = {
   azul:    "#0F2870",
@@ -18,6 +19,8 @@ export default function Footer() {
   const { dict, href } = useI18n();
   const theme = themeForPath(pathname);
   const bg = footerBgForPath(pathname, theme, THEME_FOOTER_COLORS);
+  // The footer's own "Book a session" is redundant on the page it points to.
+  const isContactPage = stripLocale(pathname) === "/contact";
 
   return (
     <footer
@@ -36,39 +39,41 @@ export default function Footer() {
       {/* ── 3-column grid ─────────────────────────── */}
       <div className="relative z-10 border-b border-ivory/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-ivory/10">
+          <div className={`grid ${isContactPage ? "" : "md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-ivory/10"}`}>
 
-            {/* Col 1 — CTA */}
-            <div className="py-14 md:py-20 md:pr-12" data-animate>
-              <p
-                className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
-                style={{ fontFamily: "var(--font-highway)" }}
-              >
-                {dict.footer.bookLabel}
-              </p>
-              <h2
-                className="text-ivory uppercase leading-[0.88] tracking-tight mb-10
-                           text-[clamp(2.8rem,4vw,3.8rem)]"
-                style={{ fontFamily: "var(--font-highway-exp)" }}
-              >
-                {dict.footer.headingLines.map((line, i) => (
-                  <span key={i}>{i > 0 && <br />}{line}</span>
-                ))}
-              </h2>
-              <Link
-                href={href("/contact")}
-                className="group inline-flex items-center gap-2 rounded-full border border-ivory text-ivory
-                           px-7 py-3 text-sm tracking-[0.2em] uppercase
-                           hover:bg-ivory hover:text-cobalt transition-colors"
-                style={{ fontFamily: "var(--font-highway)" }}
-              >
-                {dict.cta.bookSession}
-                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-              </Link>
-            </div>
+            {/* Col 1 — CTA, skipped on the page it points to */}
+            {!isContactPage && (
+              <div className="py-14 md:py-20 md:pr-12" data-animate>
+                <p
+                  className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
+                  style={{ fontFamily: "var(--font-highway)" }}
+                >
+                  {dict.footer.bookLabel}
+                </p>
+                <h2
+                  className="text-ivory uppercase leading-[0.88] tracking-tight mb-10
+                             text-[clamp(2.8rem,4vw,3.8rem)]"
+                  style={{ fontFamily: "var(--font-highway-exp)" }}
+                >
+                  {dict.footer.headingLines.map((line, i) => (
+                    <span key={i}>{i > 0 && <br />}{line}</span>
+                  ))}
+                </h2>
+                <Link
+                  href={href("/contact")}
+                  className="group inline-flex items-center gap-2 rounded-full border border-ivory text-ivory
+                             px-7 py-3 text-sm tracking-[0.2em] uppercase
+                             hover:bg-ivory hover:text-cobalt transition-colors"
+                  style={{ fontFamily: "var(--font-highway)" }}
+                >
+                  {dict.cta.bookSession}
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </Link>
+              </div>
+            )}
 
             {/* Col 2 — Follow + Studio */}
-            <div className="py-14 md:py-20 md:pl-12 flex flex-col justify-between gap-10">
+            <div className={`py-14 md:py-20 ${isContactPage ? "" : "md:pl-12"} flex flex-col justify-between gap-10`}>
               <div>
                 <p
                   className="text-sm font-bold tracking-[0.35em] uppercase text-ivory mb-6"
